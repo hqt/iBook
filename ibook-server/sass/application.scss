@@ -1,0 +1,21 @@
+// App Config - this is where most of your magic happen
+// ----------------------------------------------------
+@import "config"; // editing the config file sets the theme for the project
+
+// import core sass libraries
+// --------------------------
+@import "bourbon";
+
+// standard CSS reset stuff here
+// -----------------------------
+@import "reset";
+
+$background-color: orange; 
+
+body {
+	background-color: $background-color; 
+}  
+
+body {
+  @include backface-visibility(visible);
+}

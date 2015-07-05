@@ -1,0 +1,6 @@
+{
+  "name": "node-frontend-boilerplate",
+  "dependencies": {
+    "bourbon": "~4.2.2"
+  }
+}

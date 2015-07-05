@@ -1,0 +1,33 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "uploading school note",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "huynh quang thao",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.0",
+    "express-session": "^1.11.3",
+    "grunt": "^0.4.5",
+    "grunt-sass": "^0.18.1",
+    "jade": "^1.11.0",
+    "mongoose": "^4.0.6",
+    "morgan": "^1.6.0",
+    "passport": "^0.2.2",
+    "passport-facebook": "^2.0.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-google-plus": "^0.5.1",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.3",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
