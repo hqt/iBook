@@ -29,6 +29,9 @@
                             <constraint firstAttribute="centerX" secondItem="2K4-SO-Mdh" secondAttribute="centerX" id="vnF-GC-ZxC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="iBookLabel" destination="2K4-SO-Mdh" id="4xB-Nk-vvS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
