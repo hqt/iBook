@@ -14,6 +14,7 @@
 		5BF1EF101B4993C5002F511B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF1EF0F1B4993C5002F511B /* Images.xcassets */; };
 		5BF1EF131B4993C5002F511B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF1EF111B4993C5002F511B /* LaunchScreen.xib */; };
 		5BF1EF1F1B4993C5002F511B /* ibook_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF1EF1E1B4993C5002F511B /* ibook_iosTests.swift */; };
+		FC736DDA5832D64CE8F750DE /* libPods-ibook-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B8C60E41B4A2837004DE369 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Bridging.h; path = "ibook-ios/Bridging.h"; sourceTree = "<group>"; };
 		5BF1EF001B4993C5002F511B /* ibook-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ibook-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF041B4993C5002F511B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF1EF051B4993C5002F511B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +40,9 @@
 		5BF1EF181B4993C5002F511B /* ibook-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ibook-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF1D1B4993C5002F511B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BF1EF1E1B4993C5002F511B /* ibook_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ibook_iosTests.swift; sourceTree = "<group>"; };
+		A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.release.xcconfig"; sourceTree = "<group>"; };
+		AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ibook-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC736DDA5832D64CE8F750DE /* libPods-ibook-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +64,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17BB8C1A858C381BEAA8B78B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */,
+				A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5BF1EEF71B4993C5002F511B = {
 			isa = PBXGroup;
 			children = (
+				5B8C60E41B4A2837004DE369 /* Bridging.h */,
 				5BF1EF021B4993C5002F511B /* ibook-ios */,
 				5BF1EF1B1B4993C5002F511B /* ibook-iosTests */,
 				5BF1EF011B4993C5002F511B /* Products */,
+				17BB8C1A858C381BEAA8B78B /* Pods */,
+				81C972A6E3BC5D6A343497C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +133,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		81C972A6E3BC5D6A343497C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +148,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BF1EF221B4993C5002F511B /* Build configuration list for PBXNativeTarget "ibook-ios" */;
 			buildPhases = (
+				A86205F574C69E538B42FB42 /* Check Pods Manifest.lock */,
 				5BF1EEFC1B4993C5002F511B /* Sources */,
 				5BF1EEFD1B4993C5002F511B /* Frameworks */,
 				5BF1EEFE1B4993C5002F511B /* Resources */,
+				A026B13422D0EB9E14AA77ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +237,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A026B13422D0EB9E14AA77ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A86205F574C69E538B42FB42 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BF1EEFC1B4993C5002F511B /* Sources */ = {
@@ -344,21 +405,25 @@
 		};
 		5BF1EF231B4993C5002F511B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ibook-ios/Bridging.h";
 			};
 			name = Debug;
 		};
 		5BF1EF241B4993C5002F511B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ibook-ios/Bridging.h";
 			};
 			name = Release;
 		};
@@ -415,6 +480,7 @@
 				5BF1EF241B4993C5002F511B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BF1EF251B4993C5002F511B /* Build configuration list for PBXNativeTarget "ibook-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +489,7 @@
 				5BF1EF271B4993C5002F511B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
