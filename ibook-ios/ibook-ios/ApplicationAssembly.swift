@@ -33,6 +33,7 @@ public class ApplicationAssembly: TyphoonAssembly {
         return TyphoonDefinition.withClass(RootViewController.self) {
             (definition) in
 
+            // inject with constructor
             definition.useInitializer("initWithAssembly:") {
                 (initializer) in
                 
