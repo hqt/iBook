@@ -28,7 +28,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="userNameDoneEdit:" destination="-1" eventType="editingDidEnd" id="Rn3-jk-Pri"/>
+                        <action selector="userNameDoneEdit:" destination="-1" eventType="editingDidEndOnExit" id="ef6-hS-Rwr"/>
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxw-zf-PZq">
@@ -40,7 +40,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
-                        <action selector="passwordDoneEdit:" destination="-1" eventType="editingDidEnd" id="tNG-1y-MXy"/>
+                        <action selector="passwordDoneEdit:" destination="-1" eventType="editingDidEndOnExit" id="Tqa-So-okY"/>
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GRI-eD-lRQ">

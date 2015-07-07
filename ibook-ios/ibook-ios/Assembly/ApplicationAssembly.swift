@@ -72,7 +72,7 @@ public class ApplicationAssembly: TyphoonAssembly {
 //        return TyphoonDefinition.withClass(RemoteLoginImp.self)
 //    }
     
-//    TODO: why cannot use constructor injection for UIWindow in Swift, but work fine on Objective-C
+//    // TODO: why cannot use constructor injection for UIWindow in Swift, but work fine on Objective-C
 //    // The main window if the application
 //    public dynamic func mainWindow() -> AnyObject {
 //        return TyphoonDefinition.withClass(UIWindow.self) {
