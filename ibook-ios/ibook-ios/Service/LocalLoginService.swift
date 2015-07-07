@@ -1,5 +1,5 @@
 //
-//  LocalLoginImp.swift
+//  LocalLoginService.swift
 //  ibook-ios
 //
 //  Created by nongdenchet on 7/7/15.
