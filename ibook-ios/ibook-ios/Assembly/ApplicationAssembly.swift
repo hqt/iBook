@@ -43,6 +43,35 @@ public class ApplicationAssembly: TyphoonAssembly {
         }
     }
     
+    public dynamic func localLogin() -> AnyObject {
+        return TyphoonDefinition.withClass(LocalLoginImp.self)
+    }
+    
+    public dynamic func loginViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(LoginViewController.self) {
+            (definition) in
+            
+            definition.useInitializer("initWithInteractor:") {
+                (initializer) in
+                
+                initializer.injectParameterWith(self.localLogin())
+            }
+            definition.injectProperty("profileViewController", with: self.profileViewController())
+        }
+    }
+    
+    public dynamic func profileViewController() -> AnyObject {
+        return TyphoonDefinition.withClass(ProfileViewController.self) {
+            (definition) in
+            
+            definition.useInitializer("init")
+        }
+    }
+    
+//    public dynamic func remoteLogin() -> AnyObject {
+//        return TyphoonDefinition.withClass(RemoteLoginImp.self)
+//    }
+    
 //    TODO: why cannot use constructor injection for UIWindow in Swift, but work fine on Objective-C
 //    // The main window if the application
 //    public dynamic func mainWindow() -> AnyObject {

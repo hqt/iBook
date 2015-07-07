@@ -25,6 +25,12 @@ class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         iBookLabel.text = "Apidez"
+        navigationController?.pushViewController(self.assembly.loginViewController() as! LoginViewController,
+            animated: false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        navigationController?.navigationBar.topItem?.title = "Intro"
     }
 
     override func didReceiveMemoryWarning() {
