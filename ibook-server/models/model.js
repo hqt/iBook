@@ -3,10 +3,7 @@
  */
 
 
-require('../config/mysql').connection.connect();
-var DB = require('../config/mysql');
-
-console.log('hehe: ' + DB);
+var DB = require('./../config/mysql');
 
 var User = DB.Model.extend({
    tableName: 'tblUsers',

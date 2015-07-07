@@ -1,7 +1,7 @@
 {
-  "name": "note",
+  "name": "book",
   "version": "1.0.0",
-  "description": "uploading school note",
+  "description": "book social network",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +23,9 @@
     "knex": "^0.8.6",
     "mongoose": "^4.0.6",
     "morgan": "^1.6.0",
+    "mustache": "^2.1.2",
     "mysql": "^2.7.0",
+    "nodemailer": "^1.4.0",
     "passport": "^0.2.2",
     "passport-facebook": "^2.0.0",
     "passport-google-oauth": "^0.2.0",

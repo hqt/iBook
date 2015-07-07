@@ -8,10 +8,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var mysql = require('mysql');
+var bcrypt = require('bcrypt-nodejs');
 
 /** constant variable */
 var local_port = 3000;
 var port = process.env.PORT || local_port;
+console.log('port: ' + port);
 
 var app = express();
 
@@ -51,6 +54,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use(passport.session());
 var LocalStrategy = require('passport-local').Strategy;
 
+var connection = mysql.createConnection({
+    user : 'root',
+    password : "root",
+    //socketPath : '/Applications/MAMP/tmp/mysql/mysql.sock',
+    database: 'BookDB',
+    host: 'localhost',
+    port: 8889
+
+});
+
+connection.connect(function(err) {
+    if (err) {
+        console.log('db_connection_err', err);
+        return;
+    } else {
+        console.log('database connect success');
+    }
+});
+
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+    console.log('The solution is: ', rows[0].solution);
+
+});
+
+connection.end();
+
 // custom libraries
 // routes
 var route = require('./routes/index');
@@ -87,6 +118,7 @@ passport.deserializeUser(function(username, done) {
 //var initPassport = require('./passport/init');
 //initPassport(passport);
 
+
 // Using the flash middleware provided by connect-flash to store messages in session and displaying in templates
 app.use(flash());
 
@@ -94,27 +126,25 @@ app.use(flash());
 //var routes = require('./routes/index')(passport);
 //app.use('/', routes);
 
-/*
-// GET
-app.get('/', route.index);
+ // GET
+ app.get('/', route.index);
 
-// signin
-// GET
-app.get('/signin', route.signIn);
-// POST
-app.post('/signin', route.signInPost);
+ // signin
+ // GET
+ app.get('/signin', route.signIn);
+ // POST
+ app.post('/signin', route.signInPost);
 
-// signup
-// GET
-app.get('/signup', route.signUp);
-// POST
-app.post('/signup', route.signUpPost);
+ // signup
+ // GET
+ app.get('/signup', route.signUp);
+ // POST
+ app.post('/signup', route.signUpPost);
 
-// logout
-// GET
-app.get('/signout', route.signOut);
+ // logout
+ // GET
+ app.get('/signout', route.signOut);
 
-*/
 
 /// catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -122,6 +152,7 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
+
 
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
@@ -133,6 +164,7 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
 
 // set server port
 app.listen(port);
