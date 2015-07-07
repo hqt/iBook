@@ -2,108 +2,123 @@
  * Created by huynhthao on 6/28/15.
  */
 
-var express = require('express');
-var router = express.Router();
+// vendor library
+var passport = require('passport');
+var bcrypt = require('bcrypt-nodejs');
 
-var isAuthenticated = function (req, res, next) {
-    // if user is authenticated in the session, call the next() to call the next request handler
-    // Passport adds this method to request object. A middleware is allowed to add properties to
-    // request and response objects
-    if (req.isAuthenticated())
-        return next();
-    // if the user is not authenticated then redirect him to the login page
-    res.redirect('/');
+// custom library
+// model
+var Model = require('../models/model');
+
+// index
+var index = function(req, res, next) {
+    if(!req.isAuthenticated()) {
+        res.redirect('/signin');
+    } else {
+
+        var user = req.user;
+
+        if(user !== undefined) {
+            user = user.toJSON();
+        }
+        res.render('index', {title: 'Home', user: user});
+    }
 };
 
-module.exports = function (passport) {
+// sign in
+// GET
+var signIn = function(req, res, next) {
+    if(req.isAuthenticated()) res.redirect('/');
+    res.render('signin', {title: 'Sign In'});
+};
 
-    /* GET login page. */
-    router.get('/', function (req, res) {
-        // Display the Login page with any flash message, if any
-        res.render('index', {message: req.flash('message')});
-    });
 
-    /* Handle Login POST */
-    router.post('/login', passport.authenticate('login', {
-        successRedirect: '/home',
-        failureRedirect: '/',
-        failureFlash: true
-    }));
+// sign in
+// POST
+var signInPost = function(req, res, next) {
+    passport.authenticate('local', { successRedirect: '/',
+        failureRedirect: '/signin'}, function(err, user, info) {
+        if(err) {
+            return res.render('signin', {title: 'Sign In', errorMessage: err.message});
+        }
 
-    /* GET Registration Page */
-    router.get('/signup', function (req, res) {
-        res.render('register', {message: req.flash('message')});
-    });
+        if(!user) {
+            return res.render('signin', {title: 'Sign In', errorMessage: info.message});
+        }
+        return req.logIn(user, function(err) {
+            if(err) {
+                return res.render('signin', {title: 'Sign In', errorMessage: err.message});
+            } else {
+                return res.redirect('/');
+            }
+        });
+    })(req, res, next);
+};
 
-    /* Handle Registration POST */
-    router.post('/signup', passport.authenticate('signup', {
-        successRedirect: '/home',
-        failureRedirect: '/signup',
-        failureFlash: true
-    }));
-
-    /* GET Home Page */
-    router.get('/home', isAuthenticated, function (req, res) {
-        res.render('home', {user: req.user});
-    });
-
-    /* Handle Logout */
-    router.get('/signout', function (req, res) {
-        req.logout();
+// sign up
+// GET
+var signUp = function(req, res, next) {
+    if(req.isAuthenticated()) {
         res.redirect('/');
-    });
-
-    /////////////////////////////////////////////////////////
-    //////////// SOCIAL SECTION /////////////////////////////
-
-    /* GET login social page. */
-    router.get('/social/login', function (req, res) {
-        // Display the Login page with any flash message, if any
-        res.render('social/index', {message: req.flash('message')});
-    });
-
-    /* GET Home Social Page */
-    router.get('/social/home', isAuthenticated, function (req, res) {
-        res.render('social/home', {user: req.user});
-    });
-
-    /* Handle social Logout */
-    router.get('/social/signout', function (req, res) {
-        req.logout();
-        res.redirect('/social/login');
-    });
-
-    // route for facebook authentication and login
-    // different scopes while logging in
-    router.get('/login/facebook',
-        passport.authenticate('facebook', {scope: 'email'}
-        ));
-
-    // handle the callback after facebook has authenticated the user
-    router.get('/login/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect: '/social/home',
-            failureRedirect: '/social/login'
-        })
-    );
-
-    // route for twitter authentication and login
-    // different scopes while logging in
-    router.get('/login/twitter',
-        passport.authenticate('twitter'));
-
-    // handle the callback after facebook has authenticated the user
-    router.get('/login/twitter/callback',
-        passport.authenticate('twitter', {
-            successRedirect: '/twitter',
-            failureRedirect: '/'
-        })
-    );
-
-    /* GET Twitter View Page */
-    router.get('/twitter', isAuthenticated, function (req, res) {
-        res.render('twitter', {user: req.user});
-    });
-
-    return router;
+    } else {
+        res.render('signup', {title: 'Sign Up'});
+    }
 };
+
+// sign up
+// POST
+var signUpPost = function(req, res, next) {
+    var user = req.body;
+    var usernamePromise = null;
+    usernamePromise = new Model.User({username: user.username}).fetch();
+
+    return usernamePromise.then(function(model) {
+        if(model) {
+            res.render('signup', {title: 'signup', errorMessage: 'username already exists'});
+        } else {
+            //****************************************************//
+            // MORE VALIDATION GOES HERE(E.G. PASSWORD VALIDATION)
+            //****************************************************//
+            var password = user.password;
+            var hash = bcrypt.hashSync(password);
+
+            var signUpUser = new Model.User({username: user.username, password: hash});
+
+            signUpUser.save().then(function(model) {
+                // sign in the newly registered user
+                signInPost(req, res, next);
+            });
+        }
+    });
+};
+
+// sign out
+var signOut = function(req, res, next) {
+    if(!req.isAuthenticated()) {
+        notFound404(req, res, next);
+    } else {
+        req.logout();
+        res.redirect('/signin');
+    }
+};
+
+// export functions
+/**************************************/
+// index
+module.exports.index = index;
+
+// sigin in
+// GET
+module.exports.signIn = signIn;
+// POST
+module.exports.signInPost = signInPost;
+
+// sign up
+// GET
+module.exports.signUp = signUp;
+// POST
+module.exports.signUpPost = signUpPost;
+
+// sign out
+module.exports.signOut = signOut;
+

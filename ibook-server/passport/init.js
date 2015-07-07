@@ -14,14 +14,24 @@ module.exports = function(passport){
     passport.serializeUser(function(user, done) {
         console.log('serializing user: ');
         console.log(user);
-        done(null, user._id);
+        // done(null, user._id);
+        done(null, user.username);
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
+        // MongoDB way for query
+        /*User.findById(id, function(err, user) {
             console.log('deserializing user:',user);
             done(err, user);
-        });
+        });*/
+
+        // Bookshelf way for query. Using Javascript Promise API
+        new Model.User({username: username})
+            .fetch()
+            .then(function(user) {
+                console.log('deserializing user:',user);
+                done(null, user);
+            });
     });
 
     // Setting up Passport Strategies for Login and SignUp/Registration
@@ -29,7 +39,7 @@ module.exports = function(passport){
     signup(passport);
 
     // Setting up Passport Strategies for Facebook and Twitter
-    facebook(passport);
-    twitter(passport);
+    // facebook(passport);
+    // twitter(passport);
 
 };
