@@ -4,7 +4,7 @@
 var database_name = "BookDB";
 
 var config = {
-    host: 'localhost',
+    host: 'www.book.com.vn',
     user: 'root',
     password: 'fff',
     port: '8889',
