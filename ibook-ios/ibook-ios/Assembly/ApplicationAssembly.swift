@@ -11,6 +11,8 @@ import Foundation
 @objc(ApplicationAssembly)
 public class ApplicationAssembly: TyphoonAssembly {
     
+    var services: ServiceAssembly!
+    
     // Load properties from a plist
     public dynamic func config() -> AnyObject {
         return TyphoonDefinition.configDefinitionWithName("Configuration.plist")
@@ -24,6 +26,7 @@ public class ApplicationAssembly: TyphoonAssembly {
             
             // definition.injectProperty("window", with: self.mainWindow())
             definition.injectProperty("rootViewController", with: self.rootViewController())
+            definition.injectProperty("assembly", with: self)
         }
     }
     
@@ -43,10 +46,6 @@ public class ApplicationAssembly: TyphoonAssembly {
         }
     }
     
-    public dynamic func localLogin() -> AnyObject {
-        return TyphoonDefinition.withClass(LocalLoginImp.self)
-    }
-    
     public dynamic func loginViewController() -> AnyObject {
         return TyphoonDefinition.withClass(LoginViewController.self) {
             (definition) in
@@ -54,7 +53,7 @@ public class ApplicationAssembly: TyphoonAssembly {
             definition.useInitializer("initWithInteractor:") {
                 (initializer) in
                 
-                initializer.injectParameterWith(self.localLogin())
+                initializer.injectParameterWith(self.services.localLogin())
             }
             definition.injectProperty("profileViewController", with: self.profileViewController())
             definition.injectProperty("tabbarController", with: self.tabbarController())
@@ -96,9 +95,6 @@ public class ApplicationAssembly: TyphoonAssembly {
             definition.useInitializer("init")
         }
     }
-//    public dynamic func remoteLogin() -> AnyObject {
-//        return TyphoonDefinition.withClass(RemoteLoginImp.self)
-//    }
     
 //    // TODO: why cannot use constructor injection for UIWindow in Swift, but work fine on Objective-C
 //    // The main window if the application

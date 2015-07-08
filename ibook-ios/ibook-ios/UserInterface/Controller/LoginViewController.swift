@@ -36,7 +36,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Login"
-        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBAction func userNameDoneEdit(sender: AnyObject) {
@@ -63,13 +62,6 @@ class LoginViewController: UIViewController {
         usernameTxt.hidden = false
         progress.hidden = true
         progress.stopAnimating()
-    }
-    
-    func addProfileController() {
-        let nav = self.navigationController!
-        self.profileViewController.username = self.usernameTxt.text
-        nav.popViewControllerAnimated(false)
-        nav.pushViewController(self.profileViewController, animated: true)
     }
     
     func addTabbarController() {

@@ -12,9 +12,10 @@
 		5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E911B4BE9F7003E55DE /* LoginViewController.swift */; };
 		5B745E971B4BE9F7003E55DE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E921B4BE9F7003E55DE /* RootViewController.swift */; };
 		5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B745E941B4BE9F7003E55DE /* LoginView.xib */; };
-		5B745E991B4BE9F7003E55DE /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B745E951B4BE9F7003E55DE /* RootView.xib */; };
 		5B745E9B1B4BEA06003E55DE /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B745E9A1B4BEA06003E55DE /* ProfileView.xib */; };
 		5B745E9D1B4BEA2A003E55DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E9C1B4BEA2A003E55DE /* ProfileViewController.swift */; };
+		5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */; };
+		5B9826821B4D14C8001F1656 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B9826811B4D14C8001F1656 /* RootView.xib */; };
 		5BA8388C1B4B9FAD000E41C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8387D1B4B9FAD000E41C6 /* AppDelegate.swift */; };
 		5BA8388D1B4B9FAD000E41C6 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA8387F1B4B9FAD000E41C6 /* ApplicationAssembly.swift */; };
 		5BA8388E1B4B9FAD000E41C6 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838801B4B9FAD000E41C6 /* Configuration.plist */; };
@@ -46,9 +47,10 @@
 		5B745E911B4BE9F7003E55DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B745E921B4BE9F7003E55DE /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		5B745E941B4BE9F7003E55DE /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		5B745E951B4BE9F7003E55DE /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
 		5B745E9A1B4BEA06003E55DE /* ProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		5B745E9C1B4BEA2A003E55DE /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		5B9826811B4D14C8001F1656 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
 		5BA8387D1B4B9FAD000E41C6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BA8387F1B4B9FAD000E41C6 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		5BA838801B4B9FAD000E41C6 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -124,8 +126,8 @@
 		5B745E931B4BE9F7003E55DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5B9826811B4D14C8001F1656 /* RootView.xib */,
 				5B745E941B4BE9F7003E55DE /* LoginView.xib */,
-				5B745E951B4BE9F7003E55DE /* RootView.xib */,
 				5B745E9A1B4BEA06003E55DE /* ProfileView.xib */,
 				5BE3D5211B4CDA5B00F43B58 /* ContactView.xib */,
 				5BE3D5231B4CDA6500F43B58 /* HistoryView.xib */,
@@ -151,8 +153,9 @@
 		5BA8387E1B4B9FAD000E41C6 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				5BA8387F1B4B9FAD000E41C6 /* ApplicationAssembly.swift */,
 				5BA838801B4B9FAD000E41C6 /* Configuration.plist */,
+				5BA8387F1B4B9FAD000E41C6 /* ApplicationAssembly.swift */,
+				5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -310,11 +313,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B745E991B4BE9F7003E55DE /* RootView.xib in Resources */,
 				5BA8388E1B4B9FAD000E41C6 /* Configuration.plist in Resources */,
 				5BA838911B4B9FAD000E41C6 /* Images.xcassets in Resources */,
 				5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */,
 				5B745E9B1B4BEA06003E55DE /* ProfileView.xib in Resources */,
+				5B9826821B4D14C8001F1656 /* RootView.xib in Resources */,
 				5BE3D5241B4CDA6500F43B58 /* HistoryView.xib in Resources */,
 				5BE3D5221B4CDA5B00F43B58 /* ContactView.xib in Resources */,
 				5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */,
@@ -377,6 +380,7 @@
 				5BA8388F1B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld in Sources */,
 				5BE3D51E1B4CD9AC00F43B58 /* ContactViewController.swift in Sources */,
 				5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */,
+				5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */,
 				5B745E9D1B4BEA2A003E55DE /* ProfileViewController.swift in Sources */,
 				5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */,
 			);

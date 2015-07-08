@@ -28,7 +28,6 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Profile"
-        navigationItem.setHidesBackButton(true, animated: false)
     }
     
 }
