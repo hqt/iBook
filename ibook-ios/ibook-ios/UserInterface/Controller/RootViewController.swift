@@ -24,9 +24,14 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let controller = self.assembly.loginViewController() as! LoginViewController
-        controller.navigationItem.setHidesBackButton(true, animated: false)
-        navigationController?.pushViewController(controller, animated: false)
+        
+        // Change font color of status bar
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        
+        // create login controller
+        let viewController = self.assembly.loginViewController() as! LoginViewController
+        viewController.navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.pushViewController(viewController, animated: false)
     }
 
 }

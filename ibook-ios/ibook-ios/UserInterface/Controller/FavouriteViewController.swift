@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
-class ProfileViewController: UIViewController {
+class FavouriteViewController: UIViewController {
     
-    let tag = TabBarControllerTag.ProfileControllerTag
+    let tag = TabBarControllerTag.FavouriteControllerTag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarItem = UITabBarItem(title: "Favourite", image: UIImage(named: "favourite.png"), tag: tag.hashValue)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -19,8 +20,7 @@ class ProfileViewController: UIViewController {
     }
     
     init() {
-        super.init(nibName: "ProfileView", bundle: NSBundle.mainBundle())
-        tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile.png"), tag: tag.hashValue)
+        super.init(nibName: "FavouriteView", bundle: NSBundle.mainBundle())
     }
     
     required init(coder aDecoder: NSCoder) {

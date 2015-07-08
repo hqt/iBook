@@ -11,8 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var interactor: ILogin!
-    var profileViewController: ProfileViewController!
-    var tabbarController: MainTabbarController!
+    var tabbarController: TabBarViewController!
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
@@ -64,9 +63,10 @@ class LoginViewController: UIViewController {
         progress.stopAnimating()
     }
     
+    // Add tab bar controller
     func addTabbarController() {
         let nav = self.navigationController!
-        self.tabbarController.name = self.usernameTxt.text
+        tabbarController = TabBarViewController()
         nav.popViewControllerAnimated(false)
         nav.pushViewController(self.tabbarController, animated: true)
     }

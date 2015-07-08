@@ -55,59 +55,7 @@ public class ApplicationAssembly: TyphoonAssembly {
                 
                 initializer.injectParameterWith(self.services.localLogin())
             }
-            definition.injectProperty("profileViewController", with: self.profileViewController())
-            definition.injectProperty("tabbarController", with: self.tabbarController())
         }
     }
     
-    public dynamic func profileViewController() -> AnyObject {
-        return TyphoonDefinition.withClass(ProfileViewController.self) {
-            (definition) in
-            
-            definition.useInitializer("init")
-        }
-    }
-    
-    public dynamic func tabbarController() -> AnyObject {
-        return TyphoonDefinition.withClass(MainTabbarController.self) {
-            (definition) in
-            
-            definition.useInitializer("initWithAssembly:") {
-                (initializer) in
-                
-                initializer.injectParameterWith(self)
-            }
-        }
-    }
-    
-    public dynamic func contactController() -> AnyObject {
-        return TyphoonDefinition.withClass(ContactViewController.self) {
-            (definition) in
-            
-            definition.useInitializer("init")
-        }
-    }
-    
-    public dynamic func historyController() -> AnyObject {
-        return TyphoonDefinition.withClass(HistoryViewController.self) {
-            (definition) in
-            
-            definition.useInitializer("init")
-        }
-    }
-    
-//    // TODO: why cannot use constructor injection for UIWindow in Swift, but work fine on Objective-C
-//    // The main window if the application
-//    public dynamic func mainWindow() -> AnyObject {
-//        return TyphoonDefinition.withClass(UIWindow.self) {
-//            (definition) in
-//            
-//            definition.useInitializer("initWithFrame:") {
-//                (initializer) in
-//                
-//                initializer.injectParameterWith(UIScreen.mainScreen().bounds)
-//            }
-//            definition.injectProperty("rootViewController", with: self.rootViewController())
-//        }
-//    }
 }

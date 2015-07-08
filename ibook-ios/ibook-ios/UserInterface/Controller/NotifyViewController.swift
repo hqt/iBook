@@ -1,12 +1,14 @@
 //
-//  ContactViewController.swift
+//  FavouriteController.swift
 //  ibook-ios
 //
 //  Created by nongdenchet on 7/8/15.
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
-class ContactViewController: UIViewController {
+class NotifyViewController: UIViewController {
+    
+    let tag = TabBarControllerTag.NotifyControllerTag
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,8 @@ class ContactViewController: UIViewController {
     }
     
     init() {
-        super.init(nibName: "ContactView", bundle: NSBundle.mainBundle())
+        super.init(nibName: "NotifyView", bundle: NSBundle.mainBundle())
+        tabBarItem = UITabBarItem(title: "Notify", image: UIImage(named: "notifs.png"), tag: tag.hashValue)
     }
     
     required init(coder aDecoder: NSCoder) {

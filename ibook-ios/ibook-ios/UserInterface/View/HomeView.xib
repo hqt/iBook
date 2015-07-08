@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="ibook_ios" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ibook_ios" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="iN0-l3-epB" id="duc-qA-EoS"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xFG-4o-SGn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -14,8 +14,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnd-HJ-lQY">
-                    <rect key="frame" x="273" y="289" width="55" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUA-gU-ZhF">
+                    <rect key="frame" x="277" y="289" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -23,8 +23,8 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="Dnd-HJ-lQY" secondAttribute="centerX" id="XiX-Ng-fSS"/>
-                <constraint firstAttribute="centerY" secondItem="Dnd-HJ-lQY" secondAttribute="centerY" id="sqZ-nL-2jn"/>
+                <constraint firstAttribute="centerY" secondItem="TUA-gU-ZhF" secondAttribute="centerY" id="Ead-zY-Pt9"/>
+                <constraint firstAttribute="centerX" secondItem="TUA-gU-ZhF" secondAttribute="centerX" id="VuI-21-E6q"/>
             </constraints>
         </view>
     </objects>

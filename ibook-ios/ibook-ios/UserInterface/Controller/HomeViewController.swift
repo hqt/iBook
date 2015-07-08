@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
-class ProfileViewController: UIViewController {
+class HomeViewController: UIViewController {
     
-    let tag = TabBarControllerTag.ProfileControllerTag
+    let tag = TabBarControllerTag.HomeControllerTag
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +19,8 @@ class ProfileViewController: UIViewController {
     }
     
     init() {
-        super.init(nibName: "ProfileView", bundle: NSBundle.mainBundle())
-        tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile.png"), tag: tag.hashValue)
+        super.init(nibName: "HomeView", bundle: NSBundle.mainBundle())
+        tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home.png"), tag: tag.hashValue)
     }
     
     required init(coder aDecoder: NSCoder) {
