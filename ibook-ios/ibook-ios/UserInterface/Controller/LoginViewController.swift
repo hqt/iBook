@@ -10,8 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var interactor: ILogin!
+    var loginService: ILogin!
     var tabbarController: TabBarViewController!
+    var assembly: ServiceAssembly!
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
@@ -19,9 +20,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var infoTitle: UILabel!
     
-    init(interactor: ILogin) {
+    init() {
         super.init(nibName: "LoginView", bundle: NSBundle.mainBundle())
-        self.interactor = interactor
+        assembly = ServiceAssembly().activate()
+        loginService = assembly.loginService() as! LocalLoginService
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -75,7 +77,7 @@ class LoginViewController: UIViewController {
         self.startLogin()
         passwordTxt.resignFirstResponder()
         usernameTxt.resignFirstResponder()
-        interactor.login(usernameTxt.text, password: passwordTxt.text, done: {
+        loginService.login(usernameTxt.text, password: passwordTxt.text, done: {
             (success: Bool) in
             
             self.finishLogin()

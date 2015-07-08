@@ -24,38 +24,36 @@ public class ApplicationAssembly: TyphoonAssembly {
         return TyphoonDefinition.withClass(AppDelegate.self) {
             (definition) in
             
-            // definition.injectProperty("window", with: self.mainWindow())
-            definition.injectProperty("rootViewController", with: self.rootViewController())
             definition.injectProperty("assembly", with: self)
         }
     }
     
-    // This will hold the single instance rootViewController
-    // The whole application will contain only one rootViewController
-    public dynamic func rootViewController() -> AnyObject {
-        return TyphoonDefinition.withClass(RootViewController.self) {
-            (definition) in
-
-            // inject with constructor
-            definition.useInitializer("initWithAssembly:") {
-                (initializer) in
-                
-                initializer.injectParameterWith(self)
-            }
-            definition.scope = TyphoonScope.Singleton
-        }
-    }
-    
-    public dynamic func loginViewController() -> AnyObject {
-        return TyphoonDefinition.withClass(LoginViewController.self) {
-            (definition) in
-            
-            definition.useInitializer("initWithInteractor:") {
-                (initializer) in
-                
-                initializer.injectParameterWith(self.services.localLogin())
-            }
-        }
-    }
+//    // This will hold the single instance rootViewController
+//    // The whole application will contain only one rootViewController
+//    public dynamic func rootViewController() -> AnyObject {
+//        return TyphoonDefinition.withClass(RootViewController.self) {
+//            (definition) in
+//
+//            // inject with constructor
+//            definition.useInitializer("initWithAssembly:") {
+//                (initializer) in
+//                
+//                initializer.injectParameterWith(self)
+//            }
+//            definition.scope = TyphoonScope.Singleton
+//        }
+//    }
+//    
+//    public dynamic func loginViewController() -> AnyObject {
+//        return TyphoonDefinition.withClass(LoginViewController.self) {
+//            (definition) in
+//            
+//            definition.useInitializer("initWithInteractor:") {
+//                (initializer) in
+//                
+//                initializer.injectParameterWith(self.services.localLogin())
+//            }
+//        }
+//    }
     
 }

@@ -14,13 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var assembly: ApplicationAssembly?
-    var rootViewController: RootViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let navigationController = UINavigationController(rootViewController: rootViewController!)
+        let rootViewController = RootViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationController.navigationBar.barTintColor = UIColor(red: 178/255, green: 68/255, blue: 49/255, alpha: 1.0)
         self.window?.rootViewController = navigationController

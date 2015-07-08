@@ -11,10 +11,8 @@ import UIKit
 class RootViewController: UIViewController {
     
     @IBOutlet weak var iBookLabel: UILabel!
-    var assembly: ApplicationAssembly!
     
-    init(assembly: ApplicationAssembly) {
-        self.assembly = assembly
+    init() {
         super.init(nibName: "RootView", bundle: NSBundle.mainBundle())
     }
 
@@ -29,7 +27,7 @@ class RootViewController: UIViewController {
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         
         // create login controller
-        let viewController = self.assembly.loginViewController() as! LoginViewController
+        let viewController = LoginViewController()
         viewController.navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.pushViewController(viewController, animated: false)
     }
