@@ -17,6 +17,10 @@ class MainTabbarController: UITabBarController {
         navigationController?.navigationBar.topItem?.title = name
     }
     
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        println(item.tag)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setHidesBackButton(true, animated: false)

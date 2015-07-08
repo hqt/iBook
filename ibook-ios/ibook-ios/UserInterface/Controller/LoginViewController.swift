@@ -81,6 +81,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(sender: UIButton) {
         self.startLogin()
+        passwordTxt.resignFirstResponder()
+        usernameTxt.resignFirstResponder()
         interactor.login(usernameTxt.text, password: passwordTxt.text, done: {
             (success: Bool) in
             
