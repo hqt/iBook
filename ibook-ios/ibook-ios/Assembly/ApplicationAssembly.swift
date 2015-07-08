@@ -57,6 +57,7 @@ public class ApplicationAssembly: TyphoonAssembly {
                 initializer.injectParameterWith(self.localLogin())
             }
             definition.injectProperty("profileViewController", with: self.profileViewController())
+            definition.injectProperty("tabbarController", with: self.tabbarController())
         }
     }
     
@@ -66,6 +67,10 @@ public class ApplicationAssembly: TyphoonAssembly {
             
             definition.useInitializer("init")
         }
+    }
+    
+    public dynamic func tabbarController() -> AnyObject {
+        return TyphoonDefinition.withClass(MainTabbarController.self)
     }
     
 //    public dynamic func remoteLogin() -> AnyObject {

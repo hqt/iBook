@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     var interactor: ILogin!
     var profileViewController: ProfileViewController!
+    var tabbarController: MainTabbarController!
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
@@ -31,10 +32,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         progress.hidden = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -68,6 +65,20 @@ class LoginViewController: UIViewController {
         progress.stopAnimating()
     }
     
+    func addProfileController() {
+        let nav = self.navigationController!
+        self.profileViewController.username = self.usernameTxt.text
+        nav.popViewControllerAnimated(false)
+        nav.pushViewController(self.profileViewController, animated: true)
+    }
+    
+    func addTabbarController() {
+        let nav = self.navigationController!
+        self.tabbarController.name = self.usernameTxt.text
+        nav.popViewControllerAnimated(false)
+        nav.pushViewController(self.tabbarController, animated: true)
+    }
+    
     @IBAction func login(sender: UIButton) {
         self.startLogin()
         interactor.login(usernameTxt.text, password: passwordTxt.text, done: {
@@ -75,10 +86,7 @@ class LoginViewController: UIViewController {
             
             self.finishLogin()
             if success {
-                let nav = self.navigationController!
-                self.profileViewController.username = self.usernameTxt.text
-                nav.popViewControllerAnimated(false)
-                nav.pushViewController(self.profileViewController, animated: true)
+                self.addTabbarController()
             } else {
                 self.infoTitle.text = "Username or password is wrong"
                 self.infoTitle.textColor = UIColor.redColor()

@@ -31,8 +31,4 @@ class ProfileViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
 }

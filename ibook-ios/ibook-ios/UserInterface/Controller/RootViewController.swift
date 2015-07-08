@@ -33,8 +33,4 @@ class RootViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "Intro"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
 }
