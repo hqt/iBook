@@ -70,9 +70,32 @@ public class ApplicationAssembly: TyphoonAssembly {
     }
     
     public dynamic func tabbarController() -> AnyObject {
-        return TyphoonDefinition.withClass(MainTabbarController.self)
+        return TyphoonDefinition.withClass(MainTabbarController.self) {
+            (definition) in
+            
+            definition.useInitializer("initWithAssembly:") {
+                (initializer) in
+                
+                initializer.injectParameterWith(self)
+            }
+        }
     }
     
+    public dynamic func contactController() -> AnyObject {
+        return TyphoonDefinition.withClass(ContactViewController.self) {
+            (definition) in
+            
+            definition.useInitializer("init")
+        }
+    }
+    
+    public dynamic func historyController() -> AnyObject {
+        return TyphoonDefinition.withClass(HistoryViewController.self) {
+            (definition) in
+            
+            definition.useInitializer("init")
+        }
+    }
 //    public dynamic func remoteLogin() -> AnyObject {
 //        return TyphoonDefinition.withClass(RemoteLoginImp.self)
 //    }

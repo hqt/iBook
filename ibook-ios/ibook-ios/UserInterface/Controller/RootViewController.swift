@@ -14,8 +14,8 @@ class RootViewController: UIViewController {
     var assembly: ApplicationAssembly!
     
     init(assembly: ApplicationAssembly) {
-        super.init(nibName: "RootView", bundle: NSBundle.mainBundle())
         self.assembly = assembly
+        super.init(nibName: "RootView", bundle: NSBundle.mainBundle())
     }
 
     required init(coder aDecoder: NSCoder) {
