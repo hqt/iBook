@@ -6,6 +6,6 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
-@objc public protocol ILogin {
+@objc public protocol ILoginService {
     func login(username: String!, password: String!, done: (success: Bool) -> Void)
 }

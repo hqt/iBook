@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class LocalLoginService: NSObject, ILogin {
+public class LocalLoginService: NSObject, ILoginService {
     
     // fake data
     var data = [

@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var loginService: ILogin!
+    var loginService: ILoginService!
     var tabbarController: TabBarViewController!
     var assembly: ServiceAssembly!
     
