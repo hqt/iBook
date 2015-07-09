@@ -11,11 +11,9 @@ import UIKit
 class RootViewController: UIViewController {
     
     @IBOutlet weak var iBookLabel: UILabel!
-    var assembly: ApplicationAssembly!
     
-    init(assembly: ApplicationAssembly) {
+    init() {
         super.init(nibName: "RootView", bundle: NSBundle.mainBundle())
-        self.assembly = assembly
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -24,17 +22,14 @@ class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        iBookLabel.text = "Apidez"
-        navigationController?.pushViewController(self.assembly.loginViewController() as! LoginViewController,
-            animated: false)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        navigationController?.navigationBar.topItem?.title = "Intro"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        
+        // Change font color of status bar
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
+        
+        // create login controller
+        let viewController = LoginViewController()
+        viewController.navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.pushViewController(viewController, animated: false)
     }
 
 }

@@ -1,5 +1,5 @@
 //
-//  LocalLoginImp.swift
+//  LocalLoginService.swift
 //  ibook-ios
 //
 //  Created by nongdenchet on 7/7/15.
@@ -8,8 +8,9 @@
 
 import Foundation
 
-public class LocalLoginImp: NSObject, ILogin {
+public class LocalLoginService: NSObject, ILoginService {
     
+    // fake data
     var data = [
         "nongdenchet" : "android",
         "hqt" : "ibook",
@@ -18,9 +19,13 @@ public class LocalLoginImp: NSObject, ILogin {
     
     public func login(username: String!, password: String!, done: (success: Bool) -> Void) {
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+        
+        // Run this code in background
         dispatch_async(backgroundQueue, {
-            NSThread.sleepForTimeInterval(3)
+            NSThread.sleepForTimeInterval(3) // fake the login api
             let result = (self.data[username] != nil && self.data[username] == password)
+            
+            // run this code on main thread to send the result back
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 done(success: result)
             })
