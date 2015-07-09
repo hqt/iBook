@@ -39,6 +39,7 @@
 		5BA8388F1B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BA838831B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld */; };
 		5BA838911B4B9FAD000E41C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838871B4B9FAD000E41C6 /* Images.xcassets */; };
 		5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */; };
+		5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */; };
 		5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */; };
 		FC736DDA5832D64CE8F750DE /* libPods-ibook-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		5BA838851B4B9FAD000E41C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BA838871B4B9FAD000E41C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
+		5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextEditViewController.swift; sourceTree = "<group>"; };
 		5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BF1EF001B4993C5002F511B /* ibook-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ibook-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF181B4993C5002F511B /* ibook-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ibook-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				5B9C08811B4D5E8B0024D9DD /* HomeViewController.swift */,
 				5B9C08851B4D5F260024D9DD /* NotifyViewController.swift */,
 				5B9C08891B4D60EA0024D9DD /* ProfileViewController.swift */,
+				5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */,
 				5BA8388D1B4B9FAD000E41C6 /* ApplicationAssembly.swift in Sources */,
 				5B9C088A1B4D60EA0024D9DD /* ProfileViewController.swift in Sources */,
+				5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */,
 				5B745E971B4BE9F7003E55DE /* RootViewController.swift in Sources */,
 				5BA8388F1B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld in Sources */,
 				5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */,

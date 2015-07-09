@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseTextEditViewController {
     
     var loginService: ILoginService!
     var tabbarController: TabBarViewController!
