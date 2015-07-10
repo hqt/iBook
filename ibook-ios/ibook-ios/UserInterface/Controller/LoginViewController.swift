@@ -78,7 +78,7 @@ class LoginViewController: BaseTextEditViewController {
         passwordTxt.resignFirstResponder()
         usernameTxt.resignFirstResponder()
         loginService.login(usernameTxt.text, password: passwordTxt.text, done: {
-            (success: Bool) in
+            (success: Bool, error: NSException?) in
             
             self.finishLogin()
             if success {

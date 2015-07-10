@@ -8,7 +8,8 @@
 
 class BaseTextEditViewController: UIViewController {
     
-    let offset: CGFloat = 80
+    var offset: CGFloat = 80
+    var hasMovedUp: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class BaseTextEditViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // add observer for keyboard events
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide", name: UIKeyboardWillHideNotification, object: nil)
     }
     
@@ -30,19 +31,17 @@ class BaseTextEditViewController: UIViewController {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
 
-    func keyboardWillShow() {
-        if (self.view.frame.origin.y >= 0) {
+    func keyboardWillShow(notification: NSNotification!) {
+        if (!hasMovedUp) {
             setViewMoveUp(true)
-        } else {
-            setViewMoveUp(false)
+            self.hasMovedUp = true
         }
     }
 
     func keyboardWillHide() {
-        if (self.view.frame.origin.y >= 0) {
-            setViewMoveUp(true)
-        } else {
+        if (hasMovedUp) {
             setViewMoveUp(false)
+            self.hasMovedUp = false
         }
     }
     

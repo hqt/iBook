@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0CBDDD1B4F95E20008B079 /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
 		5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
 		5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */; };
 		5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E911B4BE9F7003E55DE /* LoginViewController.swift */; };
@@ -14,7 +15,6 @@
 		5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B745E941B4BE9F7003E55DE /* LoginView.xib */; };
 		5B9100921B4E5C8D00CC8F28 /* LocalLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9100911B4E5C8D00CC8F28 /* LocalLoginTest.swift */; };
 		5B9100931B4E5F1A00CC8F28 /* LocalLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */; };
-		5B9100941B4E5FC800CC8F28 /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
 		5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */; };
 		5B9826891B4D2105001F1656 /* draft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9826831B4D2105001F1656 /* draft.png */; };
 		5B98268A1B4D2105001F1656 /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9826841B4D2105001F1656 /* favourite.png */; };
@@ -437,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9100921B4E5C8D00CC8F28 /* LocalLoginTest.swift in Sources */,
-				5B9100941B4E5FC800CC8F28 /* ILoginService.swift in Sources */,
+				5B0CBDDD1B4F95E20008B079 /* ILoginService.swift in Sources */,
 				5B9100931B4E5F1A00CC8F28 /* LocalLoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

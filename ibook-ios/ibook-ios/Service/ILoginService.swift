@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
+import Foundation
+
 @objc public protocol ILoginService {
-    func login(username: String!, password: String!, done: (success: Bool) -> Void)
+    func login(username: String!, password: String!, done: (success: Bool, error: NSException?) -> Void)
 }

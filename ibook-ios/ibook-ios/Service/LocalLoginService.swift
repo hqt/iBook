@@ -17,7 +17,7 @@ public class LocalLoginService: NSObject, ILoginService {
         "ledaiphat" : "apidez"
     ]
     
-    public func login(username: String!, password: String!, done: (success: Bool) -> Void) {
+    public func login(username: String!, password: String!, done: (success: Bool, error: NSException?) -> Void) {
         let backgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
         
         // Run this code in background
@@ -27,7 +27,7 @@ public class LocalLoginService: NSObject, ILoginService {
             
             // run this code on main thread to send the result back
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                done(success: result)
+                done(success: result, error: nil)
             })
         })
     }
