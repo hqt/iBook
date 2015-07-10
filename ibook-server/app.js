@@ -4,6 +4,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var passport = require('passport');
+var colors = require('colors');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -14,7 +15,7 @@ var bcrypt = require('bcrypt-nodejs');
 /** constant variable */
 var local_port = 3000;
 var port = process.env.PORT || local_port;
-console.log('port: ' + port);
+console.log(('port: ' + port).red);
 
 var app = express();
 
