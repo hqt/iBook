@@ -20,11 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ku3-XC-DsH">
-                    <rect key="frame" x="180" y="214" width="240" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="OBt-c2-qxg"/>
-                        <constraint firstAttribute="height" constant="30" id="bM4-Pd-6Hw"/>
-                    </constraints>
+                    <rect key="frame" x="52" y="214" width="497" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -32,11 +28,7 @@
                     </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kxw-zf-PZq">
-                    <rect key="frame" x="180" y="274" width="240" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="240" id="RTU-x4-y3O"/>
-                        <constraint firstAttribute="height" constant="30" id="hiU-RW-Wof"/>
-                    </constraints>
+                    <rect key="frame" x="52" y="274" width="497" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
@@ -73,18 +65,22 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="GRI-eD-lRQ" firstAttribute="top" secondItem="kxw-zf-PZq" secondAttribute="bottom" constant="28" id="52K-lG-AW2"/>
+                <constraint firstAttribute="trailing" secondItem="kxw-zf-PZq" secondAttribute="trailing" constant="51" id="5xe-bW-8JH"/>
                 <constraint firstItem="y9Q-1c-wlw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="171" id="Bn0-v0-Cuv"/>
                 <constraint firstAttribute="centerX" secondItem="GRI-eD-lRQ" secondAttribute="centerX" constant="4" id="EOr-dw-F7z"/>
                 <constraint firstAttribute="centerX" secondItem="evA-ks-SPe" secondAttribute="centerX" id="Fcm-rN-Uic"/>
                 <constraint firstAttribute="centerY" secondItem="evA-ks-SPe" secondAttribute="centerY" id="R3U-n1-n3d"/>
                 <constraint firstItem="kxw-zf-PZq" firstAttribute="top" secondItem="ku3-XC-DsH" secondAttribute="bottom" constant="30" id="VK6-Gh-B8q"/>
                 <constraint firstItem="ku3-XC-DsH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="214" id="dLP-iw-KLh"/>
+                <constraint firstItem="kxw-zf-PZq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="jnk-Xu-Vqo"/>
                 <constraint firstAttribute="centerX" secondItem="y9Q-1c-wlw" secondAttribute="centerX" id="js4-Ik-AVJ"/>
                 <constraint firstItem="ku3-XC-DsH" firstAttribute="top" secondItem="y9Q-1c-wlw" secondAttribute="bottom" constant="22" id="knY-a5-Fhy"/>
                 <constraint firstAttribute="centerX" secondItem="kxw-zf-PZq" secondAttribute="centerX" id="lig-vq-qE1"/>
+                <constraint firstItem="ku3-XC-DsH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="sZg-8g-jVF"/>
                 <constraint firstAttribute="centerX" secondItem="ku3-XC-DsH" secondAttribute="centerX" id="teS-VX-Bhy"/>
                 <constraint firstItem="GRI-eD-lRQ" firstAttribute="top" secondItem="kxw-zf-PZq" secondAttribute="bottom" constant="28" id="v2w-Yl-iep"/>
                 <constraint firstItem="kxw-zf-PZq" firstAttribute="top" secondItem="ku3-XC-DsH" secondAttribute="bottom" constant="30" id="voq-MN-gdX"/>
+                <constraint firstAttribute="trailing" secondItem="ku3-XC-DsH" secondAttribute="trailing" constant="51" id="xkn-e5-7rp"/>
             </constraints>
         </view>
     </objects>
