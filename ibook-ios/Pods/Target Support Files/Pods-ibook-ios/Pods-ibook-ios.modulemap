@@ -1,0 +1,6 @@
+framework module Pods_ibook_ios {
+  umbrella header "Pods-ibook-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

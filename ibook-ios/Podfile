@@ -3,9 +3,10 @@
 
 target 'ibook-ios' do
 
-  pod 'AFNetworking', '~> 2.5'
+use_frameworks!
+  pod 'Alamofire', '~> 1.2'
   pod 'Typhoon'
-
+  pod 'ObjectMapper', '~> 0.12'
 end
 
 target 'ibook-iosTests' do

@@ -9,7 +9,6 @@
 #ifndef Table_Cells_Bridging_h
 #define Table_Cells_Bridging_h
 
-#import <AFNetworking/AFNetworking.h>
 #import <Typhoon/Typhoon.h>
 
 #endif

@@ -1,35 +1,18 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.5.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
+  - Alamofire (1.2.3)
+  - ObjectMapper (0.12)
   - Typhoon (3.2.1):
-    - Typhoon/no-arc
+    - Typhoon/no-arc (= 3.2.1)
   - Typhoon/no-arc (3.2.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - Alamofire (~> 1.2)
+  - ObjectMapper (~> 0.12)
   - Typhoon
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
+  ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
   Typhoon: 18ec2ddce9dcb039d5c82bd7e4235e7868faaa06
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.37.2

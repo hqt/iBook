@@ -41,7 +41,7 @@
 		5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */; };
 		5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */; };
 		5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */; };
-		FC736DDA5832D64CE8F750DE /* libPods-ibook-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */; };
+		DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +92,8 @@
 		5BF1EF001B4993C5002F511B /* ibook-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ibook-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF181B4993C5002F511B /* ibook-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ibook-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF1D1B4993C5002F511B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ibook_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.release.xcconfig"; sourceTree = "<group>"; };
-		AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ibook-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC736DDA5832D64CE8F750DE /* libPods-ibook-ios.a in Frameworks */,
+				DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 		81C972A6E3BC5D6A343497C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AC59CD1F5A396E70187BF435 /* libPods-ibook-ios.a */,
+				85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,6 +278,7 @@
 				5BF1EEFD1B4993C5002F511B /* Frameworks */,
 				5BF1EEFE1B4993C5002F511B /* Resources */,
 				A026B13422D0EB9E14AA77ED /* Copy Pods Resources */,
+				DE182946FDA0D91BEDE7BE6E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,6 +406,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE182946FDA0D91BEDE7BE6E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
