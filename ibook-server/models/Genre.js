@@ -1,24 +1,24 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Tag', { 
-    TagID: {
+  return sequelize.define('Genre', { 
+    GenreID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    ParentTagID: {
+    ParentGenreID: {
       type: DataTypes.INTEGER(10),
       allowNull: true,
     },
-    CreatedTagUserID: {
+    CreatedGenreUserID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    TagName: {
+    GenreName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    TagDescription: {
+    GenreDescription: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -1,21 +1,17 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Activity', { 
-    ActivityID: {
+  return sequelize.define('AuthenticationProvider', { 
+    ProviderKey: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    UserID: {
+    UserId: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    ProfileView: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-    },
-    LastLoginIP: {
-      type: DataTypes.INTEGER(11),
+    SocialProviderID: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
     }
   });

@@ -1,8 +1,8 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Activity', { 
-    ActivityID: {
+  return sequelize.define('ReadBook', { 
+    ReadBookID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
@@ -10,12 +10,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    ProfileView: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-    },
-    LastLoginIP: {
-      type: DataTypes.INTEGER(11),
+    BookID: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
     }
   });

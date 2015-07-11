@@ -1,25 +1,21 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Tag', { 
-    TagID: {
+  return sequelize.define('SubscribePost', { 
+    SubscribePostID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    ParentTagID: {
-      type: DataTypes.INTEGER(10),
-      allowNull: true,
-    },
-    CreatedTagUserID: {
+    UserID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    TagName: {
-      type: DataTypes.STRING,
+    PostID: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    TagDescription: {
-      type: DataTypes.STRING,
+    ReplyID: {
+      type: DataTypes.INTEGER(10),
       allowNull: false,
     },
     DateCreated: {

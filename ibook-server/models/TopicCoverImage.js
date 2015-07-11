@@ -1,30 +1,30 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Tag', { 
-    TagID: {
+  return sequelize.define('TopicCoverImage', { 
+    TopicCoverImageID: {
       type: DataTypes.INTEGER(10),
       allowNull: false,
     },
-    ParentTagID: {
+    UserID: {
+      type: DataTypes.INTEGER(10),
+      allowNull: false,
+    },
+    BookID: {
       type: DataTypes.INTEGER(10),
       allowNull: true,
     },
-    CreatedTagUserID: {
+    ChapterID: {
       type: DataTypes.INTEGER(10),
-      allowNull: false,
+      allowNull: true,
     },
-    TagName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    TagDescription: {
+    ImageURL: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     DateCreated: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     }
   });
 };

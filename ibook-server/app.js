@@ -83,6 +83,22 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
 
 connection.end();
 
+var Sequelize = require('sequelize');
+var sequelize = new Sequelize('BookDB', 'root', 'root', {
+        host: 'localhost',
+        dialect: "mysql", // or 'sqlite', mysql', 'mariadb'
+        port:    8889
+});
+
+var test = sequelize.authenticate()
+    .then(function () {
+        console.log("CONNECTED! ");
+    })
+    .catch(function (err) {
+        console.log("SOMETHING DONE GOOFED");
+    })
+    .done();
+
 // custom libraries
 // routes
 var route = require('./routes/index');
