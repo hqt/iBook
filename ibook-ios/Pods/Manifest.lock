@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (1.2.3)
   - ObjectMapper (0.12)
   - OMGHTTPURLRQ (2.1.3):
     - OMGHTTPURLRQ/RQ (= 2.1.3)
@@ -25,13 +24,11 @@ PODS:
   - Typhoon/no-arc (3.2.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.2)
-  - ObjectMapper (~> 0.12)
+  - ObjectMapper
   - PromiseKit
   - Typhoon
 
 SPEC CHECKSUMS:
-  Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
   ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 6e9fae221f0bcf83fee53b611168cfb557f472d1
