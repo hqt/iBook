@@ -1,6 +1,25 @@
 PODS:
   - Alamofire (1.2.3)
   - ObjectMapper (0.12)
+  - OMGHTTPURLRQ (2.1.3):
+    - OMGHTTPURLRQ/RQ (= 2.1.3)
+  - OMGHTTPURLRQ/FormURLEncode (2.1.3)
+  - OMGHTTPURLRQ/RQ (2.1.3):
+    - OMGHTTPURLRQ/FormURLEncode
+    - OMGHTTPURLRQ/UserAgent
+  - OMGHTTPURLRQ/UserAgent (2.1.3)
+  - PromiseKit (2.1.0):
+    - PromiseKit/Foundation (= 2.1.0)
+    - PromiseKit/QuartzCore (= 2.1.0)
+    - PromiseKit/UIKit (= 2.1.0)
+  - PromiseKit/CorePromise (2.1.0)
+  - PromiseKit/Foundation (2.1.0):
+    - OMGHTTPURLRQ (~> 2.1.3)
+    - PromiseKit/CorePromise
+  - PromiseKit/QuartzCore (2.1.0):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (2.1.0):
+    - PromiseKit/CorePromise
   - Typhoon (3.2.1):
     - Typhoon/no-arc (= 3.2.1)
   - Typhoon/no-arc (3.2.1)
@@ -8,11 +27,14 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 1.2)
   - ObjectMapper (~> 0.12)
+  - PromiseKit
   - Typhoon
 
 SPEC CHECKSUMS:
   Alamofire: 5550bf0b575ed1a4bf9be572f9463e1015cc169e
   ObjectMapper: ef4a369cbab75546029ceb7e8155772b5f8e8841
+  OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
+  PromiseKit: 6e9fae221f0bcf83fee53b611168cfb557f472d1
   Typhoon: 18ec2ddce9dcb039d5c82bd7e4235e7868faaa06
 
 COCOAPODS: 0.37.2

@@ -4,9 +4,10 @@
 target 'ibook-ios' do
 
 use_frameworks!
-  pod 'Alamofire', '~> 1.2'
+  pod 'Alamofire'
   pod 'Typhoon'
-  pod 'ObjectMapper', '~> 0.12'
+  pod 'ObjectMapper'
+  pod 'PromiseKit'
 end
 
 target 'ibook-iosTests' do
