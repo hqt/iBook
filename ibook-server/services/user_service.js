@@ -2,10 +2,5 @@
  * Created by huynhthao on 7/11/15.
  */
 
-var Sequelize = require('sequelize');
+var db = require('./mysql');
 
-var getUser = function (req, res) {
-    User.findAll().success(function (users) {
-        res.send(users);
-    });
-};

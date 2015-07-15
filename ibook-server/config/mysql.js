@@ -1,23 +1,17 @@
 /**
  * Created by huynhthao on 7/6/15.
  */
-var database_name = "BookDB";
 
 var config = {
     host: 'localhost',
-    user: 'root',
+    username: 'root',
     password: 'root',
     port: 8889,
-    database: database_name,
-    charset: 'UTF8_GENERAL_CI'
+    database: "BookDB",
+    charset: 'UTF8_GENERAL_CI',
+    dialect: "mysql"
 };
 
-var knex = require('knex')({
-    client: 'mysql',
-    connection: config
-});
 
+module.exports = config;
 
-var Bookshelf = require('bookshelf')(knex);
-
-module.exports = Bookshelf;
