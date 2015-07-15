@@ -10,8 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    var interactor: ILogin!
-    var profileViewController: ProfileViewController!
+    var loginService: ILoginService!
+    var tabbarController: TabBarViewController!
+    var assembly: ServiceAssembly!
     
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
@@ -19,9 +20,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var infoTitle: UILabel!
     
-    init(interactor: ILogin) {
+    init() {
         super.init(nibName: "LoginView", bundle: NSBundle.mainBundle())
-        self.interactor = interactor
+        assembly = ServiceAssembly().activate()
+        loginService = assembly.loginService() as! LocalLoginService
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -33,13 +35,8 @@ class LoginViewController: UIViewController {
         progress.hidden = true
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     override func viewDidAppear(animated: Bool) {
         navigationController?.navigationBar.topItem?.title = "Login"
-        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBAction func userNameDoneEdit(sender: AnyObject) {
@@ -68,17 +65,24 @@ class LoginViewController: UIViewController {
         progress.stopAnimating()
     }
     
+    // Add tab bar controller
+    func addTabbarController() {
+        let nav = self.navigationController!
+        tabbarController = TabBarViewController()
+        nav.popViewControllerAnimated(false)
+        nav.pushViewController(self.tabbarController, animated: true)
+    }
+    
     @IBAction func login(sender: UIButton) {
         self.startLogin()
-        interactor.login(usernameTxt.text, password: passwordTxt.text, done: {
+        passwordTxt.resignFirstResponder()
+        usernameTxt.resignFirstResponder()
+        loginService.login(usernameTxt.text, password: passwordTxt.text, done: {
             (success: Bool) in
             
             self.finishLogin()
             if success {
-                let nav = self.navigationController!
-                self.profileViewController.username = self.usernameTxt.text
-                nav.popViewControllerAnimated(false)
-                nav.pushViewController(self.profileViewController, animated: true)
+                self.addTabbarController()
             } else {
                 self.infoTitle.text = "Username or password is wrong"
                 self.infoTitle.textColor = UIColor.redColor()
