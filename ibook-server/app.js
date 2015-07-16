@@ -77,6 +77,7 @@ var author = Author.build({ AuthorName: "John", AuthorDescription: "Doe "})
     });
 */
 
+/*
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
     host     : 'localhost',
@@ -94,7 +95,20 @@ connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
     console.log('The solution is: ', rows[0].solution);
 });
 
-connection.end();
+// connection.end();
+*/
+
+var authorService = require('./services/author_service');
+
+authorService.getAllAuthors();
+
+var solve = function(email, display_name) {
+  async.waterfall([
+      //
+
+      
+  ]);
+};
 
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
