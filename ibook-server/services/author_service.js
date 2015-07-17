@@ -33,7 +33,7 @@ var getAllAuthors = function getAllAuthorsFn() {
         },
 
         function(error, user_data) {
-            console.log("fuck");
+            console.log("last block of service");
             console.log(user_data);
             if (dbc) dbc.release();
             if (error) {
@@ -45,4 +45,20 @@ var getAllAuthors = function getAllAuthorsFn() {
     ]);
 };
 
+var helperAsync = function() {
+    async.waterfall([
+       function(callback) {
+           console.log('task 1');
+           callback();
+       },
+        function (callback) {
+            console.log('task 2');
+            callback();
+        }
+    ]);
+};
+
+
+
 module.exports.getAllAuthors = getAllAuthors;
+module.exports.helperAsync = helperAsync;
