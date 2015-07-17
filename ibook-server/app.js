@@ -48,67 +48,36 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-// loading database. make ./models singleton because nodejs can reload modules base on file location ...
-/*
-app.set('models', require('./models'));
-
-var Author = app.get('models').Author;
-console.log(Author);
-var author = Author.build({ AuthorName: "John", AuthorDescription: "Doe "})
-    .save()
-    .then(function(anotherTask) {
-        console.log("done");
-        // you can now access the currently saved task with the variable anotherTask... nice!
-    }).catch(function(error) {
-        // Ooops, do some error-handling
-        console.log("fucking");
-        console.log(error);
-    });
-
-var author = Author.build({ AuthorName: "John", AuthorDescription: "Doe "})
-    .save()
-    .then(function(anotherTask) {
-        console.log("done");
-        // you can now access the currently saved task with the variable anotherTask... nice!
-    }).catch(function(error) {
-        // Ooops, do some error-handling
-        console.log("fucking");
-        console.log(error);
-    });
-*/
-
-/*
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : 'root',
-    database : 'BookDB',
-    port: 8889
-});
-
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-    if (err) throw err;
-
-    console.log('The solution is: ', rows[0].solution);
-});
-
-// connection.end();
-*/
-
+var async = require('async');
 var authorService = require('./services/author_service');
 
-authorService.getAllAuthors();
+//authorService.getAllAuthors();
 
-var solve = function(email, display_name) {
+var solve = function() {
   async.waterfall([
-      //
+      // a long working task. huh
+      function (callback) {
+          setTimeout(function() {
+              console.log('hello world!');
+              callback();
+          }, 2000);
+      },
 
-      
+      function (callback) {
+          authorService.helperAsync();
+          callback();
+      },
+
+      function (callback) {
+          setTimeout(function() {
+              console.log('bye bye!');
+          }, 2000);
+      }
+
   ]);
 };
+
+solve();
 
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
