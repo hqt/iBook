@@ -122,6 +122,38 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
+=======
+var async = require('async');
+var authorService = require('./services/author_service');
+
+//authorService.getAllAuthors();
+
+var solve = function() {
+  async.waterfall([
+      // a long working task. huh
+      function (callback) {
+          setTimeout(function() {
+              console.log('hello world!');
+              callback();
+          }, 2000);
+      },
+
+      function (callback) {
+          authorService.helperAsync();
+          callback();
+      },
+
+      function (callback) {
+          setTimeout(function() {
+              console.log('bye bye!');
+          }, 2000);
+      }
+
+  ]);
+};
+
+solve();
+>>>>>>> server
 
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
