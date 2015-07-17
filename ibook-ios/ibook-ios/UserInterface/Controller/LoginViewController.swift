@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseTextEditViewController {
     
     var loginService: ILoginService!
     var tabbarController: TabBarViewController!
@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.navigationBar.topItem?.title = "Login"
     }
     
@@ -78,7 +79,7 @@ class LoginViewController: UIViewController {
         passwordTxt.resignFirstResponder()
         usernameTxt.resignFirstResponder()
         loginService.login(usernameTxt.text, password: passwordTxt.text, done: {
-            (success: Bool) in
+            (success: Bool, error: NSException?) in
             
             self.finishLogin()
             if success {

@@ -28,7 +28,7 @@ class LocalLoginTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         
         localLoginService.login("nongdenchet", password: "android", done: {
-            (success: Bool) in
+            (success: Bool, error: NSException?) in
             
             println("Resule: \(success)")
             XCTAssertEqual(success, true, "Expect login success but fail")
@@ -47,7 +47,7 @@ class LocalLoginTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         
         localLoginService.login("apidez", password: "android", done: {
-            (success: Bool) in
+            (success: Bool, error: NSException?) in
             
             XCTAssertEqual(success, false, "Expect login fail but success")
             readyExpectation.fulfill()
@@ -65,7 +65,7 @@ class LocalLoginTest: XCTestCase {
         let readyExpectation = expectationWithDescription("ready")
         
         localLoginService.login("hqt", password: "IBOOK", done: {
-            (success: Bool) in
+            (success: Bool, error: NSException?) in
             
             XCTAssertEqual(success, false, "Expect login fail but success")
             readyExpectation.fulfill()

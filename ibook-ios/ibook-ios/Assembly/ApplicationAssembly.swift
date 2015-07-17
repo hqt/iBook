@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Typhoon
 
 @objc(ApplicationAssembly)
 public class ApplicationAssembly: TyphoonAssembly {

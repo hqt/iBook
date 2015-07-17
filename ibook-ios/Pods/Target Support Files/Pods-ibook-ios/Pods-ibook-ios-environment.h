@@ -6,47 +6,65 @@
 // project.
 
 
-// AFNetworking
-#define COCOAPODS_POD_AVAILABLE_AFNetworking
-#define COCOAPODS_VERSION_MAJOR_AFNetworking 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking 4
+// OMGHTTPURLRQ
+#define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ
+#define COCOAPODS_VERSION_MAJOR_OMGHTTPURLRQ 2
+#define COCOAPODS_VERSION_MINOR_OMGHTTPURLRQ 1
+#define COCOAPODS_VERSION_PATCH_OMGHTTPURLRQ 3
 
-// AFNetworking/NSURLConnection
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLConnection
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLConnection 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLConnection 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLConnection 4
+// OMGHTTPURLRQ/FormURLEncode
+#define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ_FormURLEncode
+#define COCOAPODS_VERSION_MAJOR_OMGHTTPURLRQ_FormURLEncode 2
+#define COCOAPODS_VERSION_MINOR_OMGHTTPURLRQ_FormURLEncode 1
+#define COCOAPODS_VERSION_PATCH_OMGHTTPURLRQ_FormURLEncode 3
 
-// AFNetworking/NSURLSession
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_NSURLSession
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_NSURLSession 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_NSURLSession 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_NSURLSession 4
+// OMGHTTPURLRQ/RQ
+#define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ_RQ
+#define COCOAPODS_VERSION_MAJOR_OMGHTTPURLRQ_RQ 2
+#define COCOAPODS_VERSION_MINOR_OMGHTTPURLRQ_RQ 1
+#define COCOAPODS_VERSION_PATCH_OMGHTTPURLRQ_RQ 3
 
-// AFNetworking/Reachability
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_Reachability
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_Reachability 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_Reachability 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_Reachability 4
+// OMGHTTPURLRQ/UserAgent
+#define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ_UserAgent
+#define COCOAPODS_VERSION_MAJOR_OMGHTTPURLRQ_UserAgent 2
+#define COCOAPODS_VERSION_MINOR_OMGHTTPURLRQ_UserAgent 1
+#define COCOAPODS_VERSION_PATCH_OMGHTTPURLRQ_UserAgent 3
 
-// AFNetworking/Security
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_Security
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_Security 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_Security 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_Security 4
+// ObjectMapper
+#define COCOAPODS_POD_AVAILABLE_ObjectMapper
+#define COCOAPODS_VERSION_MAJOR_ObjectMapper 0
+#define COCOAPODS_VERSION_MINOR_ObjectMapper 12
+#define COCOAPODS_VERSION_PATCH_ObjectMapper 0
 
-// AFNetworking/Serialization
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_Serialization
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_Serialization 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_Serialization 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_Serialization 4
+// PromiseKit
+#define COCOAPODS_POD_AVAILABLE_PromiseKit
+#define COCOAPODS_VERSION_MAJOR_PromiseKit 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit 1
+#define COCOAPODS_VERSION_PATCH_PromiseKit 0
 
-// AFNetworking/UIKit
-#define COCOAPODS_POD_AVAILABLE_AFNetworking_UIKit
-#define COCOAPODS_VERSION_MAJOR_AFNetworking_UIKit 2
-#define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
-#define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 4
+// PromiseKit/CorePromise
+#define COCOAPODS_POD_AVAILABLE_PromiseKit_CorePromise
+#define COCOAPODS_VERSION_MAJOR_PromiseKit_CorePromise 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_CorePromise 1
+#define COCOAPODS_VERSION_PATCH_PromiseKit_CorePromise 0
+
+// PromiseKit/Foundation
+#define COCOAPODS_POD_AVAILABLE_PromiseKit_Foundation
+#define COCOAPODS_VERSION_MAJOR_PromiseKit_Foundation 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Foundation 1
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Foundation 0
+
+// PromiseKit/QuartzCore
+#define COCOAPODS_POD_AVAILABLE_PromiseKit_QuartzCore
+#define COCOAPODS_VERSION_MAJOR_PromiseKit_QuartzCore 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_QuartzCore 1
+#define COCOAPODS_VERSION_PATCH_PromiseKit_QuartzCore 0
+
+// PromiseKit/UIKit
+#define COCOAPODS_POD_AVAILABLE_PromiseKit_UIKit
+#define COCOAPODS_VERSION_MAJOR_PromiseKit_UIKit 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_UIKit 1
+#define COCOAPODS_VERSION_PATCH_PromiseKit_UIKit 0
 
 // Typhoon
 #define COCOAPODS_POD_AVAILABLE_Typhoon

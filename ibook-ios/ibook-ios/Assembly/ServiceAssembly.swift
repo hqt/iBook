@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
+import Typhoon
+
 @objc(ServiceAssembly)
 public class ServiceAssembly: TyphoonAssembly {
 

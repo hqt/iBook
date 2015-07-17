@@ -3,9 +3,10 @@
 
 target 'ibook-ios' do
 
-  pod 'AFNetworking', '~> 2.5'
+use_frameworks!
   pod 'Typhoon'
-
+  pod 'ObjectMapper'
+  pod 'PromiseKit'
 end
 
 target 'ibook-iosTests' do
