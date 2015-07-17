@@ -2,25 +2,29 @@
  * Created by huynhthao on 7/6/15.
  */
 
+var mysql = require('mysql');
+
 var config = {
     host: 'localhost',
     username: 'root',
     password: 'root',
     port: 8889,
     database: "BookDB",
+    connectionLimit: 10,
     charset: 'UTF8_GENERAL_CI',
     dialect: "mysql"
 };
 
-var mysql = require('mysql');
 
 var pool = mysql.createPool({
-   connectionLimit: 10,
-    host     : 'localhost',
-    user     : 'root',
-    password : 'root',
-    database : 'BookDB',
-    port: 8889
+   connectionLimit: config.connectionLimit,
+    host     : config.host,
+    user     : config.username,
+    password : config.password,
+    database : config.database,
+    port     : config.port,
+    charset  : config.charset,
+    dialect  : config.dialect
 });
 
 // run this function for testing connection
