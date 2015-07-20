@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'mustache');
 // view as directory for all template files
 app.set('views', path.join(__dirname, 'views'));
-//app.register(".mustache", require('stache'));    /// why ???
+// app.register(".mustache", require('stache'));    /// why ???
 
 /** middleware configuration */
 
@@ -90,6 +90,9 @@ if (app.get('env') === 'development') {
         });
     });
 }
+
+// routing
+require('./routes/routes')(app);
 
 // set server port
 app.listen(port);
