@@ -4,5 +4,10 @@
 
 exports.newsFeed = function newsFeed (req, res) {
     console.log('new feeds');
-    res.render('post/index');
+    res.render('post/index', {
+        name: 'thao',
+        school: 'FPT University',
+        family: {
+            sister: 'Pham Huong Lan'
+        }});
 };

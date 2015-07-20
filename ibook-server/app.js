@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
-var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var engines = require('consolidate');
 
 /** constant variable */
 var local_port = 3000;
@@ -18,10 +18,15 @@ var app = express();
 // view engine setup
 // instruct express to server up static assets
 app.use(express.static(path.join(__dirname, 'public')));
-app.set('view engine', 'mustache');
 // view as directory for all template files
 app.set('views', path.join(__dirname, 'views'));
-// app.register(".mustache", require('stache'));    /// why ???
+// hbs files should be handled by `handlebars`
+// consolidate take care of loading `handlebars` and interfacing with express
+app.engine('hbs', engines.handlebars);
+app.engine('.html', engines.handlebars);
+// default file extensions for template files
+app.set('view engine', 'hbs');
+app.set("view options", {layout: false});
 
 /** middleware configuration */
 
@@ -49,36 +54,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-var async = require('async');
-var authorService = require('./services/author_service');
-
-//authorService.getAllAuthors();
-
-var solve = function() {
-  async.waterfall([
-      // a long working task. huh
-      function (callback) {
-          setTimeout(function() {
-              console.log('hello world!');
-              callback();
-          }, 2000);
-      },
-
-      function (callback) {
-          authorService.helperAsync();
-          callback();
-      },
-
-      function (callback) {
-          setTimeout(function() {
-              console.log('bye bye!');
-          }, 2000);
-      }
-
-  ]);
-};
-
-solve();
 
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
