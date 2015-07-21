@@ -10,7 +10,7 @@ var config = {
     password: 'root',
     port: 8889,
     database: "BookDB",
-    connectionLimit: 10,
+    connectionLimit: 100,
     charset: 'UTF8_GENERAL_CI',
     dialect: "mysql"
 };
