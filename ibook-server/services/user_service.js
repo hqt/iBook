@@ -4,6 +4,7 @@
 
 var async = require('async');
 var pool = require('../config/mysql').pool;
+var co
 
 var createUser = function createUser (username, password, email, firstName, lastName, avatarURL, // user table
                                       quote, about, homepage,                                    // profile table
@@ -17,7 +18,7 @@ var createUser = function createUser (username, password, email, firstName, last
     var dateUpdated = dateCreated;
 
     async.waterfall([
-       // get connection
+        // get connection
         function (callback) {
             pool.getConnection(callback);
         },
@@ -32,6 +33,7 @@ var createUser = function createUser (username, password, email, firstName, last
                 FirstName: firstName,
                 LastName: lastName,
                 avatarURL: avatarURL,
+                state: 1,
                 DateCreated: dateCreated,
                 DateUpdated: dateUpdated
             };
@@ -40,9 +42,8 @@ var createUser = function createUser (username, password, email, firstName, last
         },
 
         // insert activity table
-        function(result, callback) {
+        function(result, rows, callback) {
             userId = result.insertId;
-            console.log('second user id: ' + userId);
             var params = {
                 ActivityID: userId,
                 ProfileView: 0,
@@ -53,9 +54,7 @@ var createUser = function createUser (username, password, email, firstName, last
         },
 
         // insert profile table
-        function (result, callback) {
-            userId = result.insertId;
-            console.log('inserted userid: '+ userId);
+        function (result, rows, callback) {
             var params = {
                 ProfileID: userId,
                 Quote: quote,
@@ -66,13 +65,17 @@ var createUser = function createUser (username, password, email, firstName, last
             };
             var query = "INSERT INTO PROFILE SET ?";
             dbc.query(query, params, callback);
+        },
+
+        // finish insert into profile. call finish
+        function (result, rows, callback) {
+            callback(null, userId);
         }
 
     ],  function (error, userData) {
-        console.log('end block');
         if (dbc) dbc.release();
         if (error) {
-            console.log('error');
+            console.log('Error Inserting User');
             console.log(error);
             //report_error(error);
         } else {
@@ -82,4 +85,37 @@ var createUser = function createUser (username, password, email, firstName, last
 
 };
 
+var deleteUser = function deleteUser(userId, callback) {
+    var dbc;
+    async.waterfall([
+        function (callback) {
+            pool.getConnection(callback);
+        },
+
+        // change user to deactive state
+        function (connection, callback) {
+            dbc = connection;
+            var query = 'UPDATE USER SET STATE = ? WHERE UserID = ?';
+            dbc.query(query, [2, userId], callback);
+        },
+
+        // get delete result. rows in this case unidentify
+        function (result, rows, callback) {
+            callback(null, result.affectedRows);
+        }
+
+    ], function (error, userData) {
+        if (dbc) dbc.release();
+        if (error) {
+            console.log(error);
+        } else {
+            callback(null, userData);
+        }
+    });
+
+};
+
+
+
 module.exports.createUser = createUser;
+module.exports.deleteUser = deleteUser;

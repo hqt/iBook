@@ -12,6 +12,7 @@
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^2.9.32",
     "body-parser": "^1.13.1",
+    "colour": "^0.7.1",
     "compression": "^1.5.1",
     "connect-flash": "^0.1.1",
     "consolidate": "^0.13.1",

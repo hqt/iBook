@@ -45,20 +45,62 @@ var getAllAuthors = function getAllAuthorsFn() {
     ]);
 };
 
-var helperAsync = function() {
+var insertAuthor = function insertAuthor(firstName, middleName, lastName, birthDate, birthPlace, diedYear,
+                                         penName, country, occupation, notableWork, bibliography, callback) {
+
+    // database connection
+    var dbc;
+
+    // user id for later reference
+    var userId;
+    var dateCreated = new Date();
+    var dateUpdated = dateCreated;
+
     async.waterfall([
-       function(callback) {
-           console.log('task 1');
-           callback();
-       },
+        // get connection
         function (callback) {
-            console.log('task 2');
-            callback();
+            pool.getConnection(callback);
+        },
+
+        // insert author table
+        function (connection, callback) {
+            dbc = connection;
+            var params = {
+                FirstName: firstName,
+                MiddleName: middleName,
+                LastName: lastName,
+                BirthDate: birthDate,
+                BirthPlace: birthPlace,
+                diedYear: diedYear,
+                PenName: penName,
+                Country: country,
+                Occupation: occupation,
+                NotableWork: notableWork,
+                Bibliography: bibliography,
+                DateCreated: dateCreated,
+                DateUpdated: dateUpdated
+            };
+            var query = "INSERT INTO Author SET ?";
+            dbc.query(query, params, callback);
+        },
+
+        function(result, rows, callback) {
+            var authorId = result.insertId;
+            callback(null, authorId);
         }
-    ]);
+
+    ],  function (error, userData) {
+        if (dbc) dbc.release();
+        if (error) {
+            console.log('Error Inserting Author');
+            console.log(error);
+        } else {
+            callback(null, userData);
+        }
+    });
+
+
 };
 
-
-
 module.exports.getAllAuthors = getAllAuthors;
-module.exports.helperAsync = helperAsync;
+module.exports.insertAuthor = insertAuthor;

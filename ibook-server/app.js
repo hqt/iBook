@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
 var engines = require('consolidate');
+var colors = require('colour');
 
 /** constant variable */
 var local_port = 3000;

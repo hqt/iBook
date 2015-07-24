@@ -8,7 +8,7 @@ var config = {
     host: 'localhost',
     username: 'root',
     password: 'root',
-    port: 8889,
+    port: 3306,
     database: "BookDB",
     connectionLimit: 100,
     charset: 'UTF8_GENERAL_CI',
