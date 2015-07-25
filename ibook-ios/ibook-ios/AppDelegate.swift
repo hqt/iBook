@@ -22,22 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootViewController = RootViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationController.navigationBar.barTintColor = UIColor().mainColor()
+        navigationController.navigationBar.barTintColor = UIColor().navColor()
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
-        return FBSDKApplicationDelegate.sharedInstance().application(application,
-            didFinishLaunchingWithOptions: launchOptions)
+        return true
     }
     
     func application(application: UIApplication,
         openURL url: NSURL,
         sourceApplication: String?,
         annotation: AnyObject?) -> Bool {
-            return FBSDKApplicationDelegate.sharedInstance().application(
-                application,
-                openURL: url,
+            return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url,
                 sourceApplication: sourceApplication,
-                annotation: annotation)
+                annotation: annotation) || GIDSignIn.sharedInstance().handleURL(url,
+                sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

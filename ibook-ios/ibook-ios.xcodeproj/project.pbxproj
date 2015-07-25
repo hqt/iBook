@@ -45,6 +45,17 @@
 		5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */; };
 		5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */; };
 		5BDC01801B63ACC700F9C59F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC017F1B63ACC700F9C59F /* Colors.swift */; };
+		5BDC01851B63B00F00F9C59F /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BDC01821B63B00F00F9C59F /* GooglePlus.bundle */; };
+		5BDC01881B63B71B00F9C59F /* GoogleLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC01871B63B71B00F9C59F /* GoogleLoginViewController.swift */; };
+		5BDC01941B63F11F00F9C59F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01891B63F11F00F9C59F /* AddressBook.framework */; };
+		5BDC019A1B63F11F00F9C59F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC018F1B63F11F00F9C59F /* Foundation.framework */; };
+		5BDC019C1B63F11F00F9C59F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01911B63F11F00F9C59F /* Security.framework */; };
+		5BDC019D1B63F11F00F9C59F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01921B63F11F00F9C59F /* SystemConfiguration.framework */; };
+		5BDC019E1B63F11F00F9C59F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01931B63F11F00F9C59F /* UIKit.framework */; };
+		5BDC01A01B63F24600F9C59F /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC019F1B63F24600F9C59F /* Value.swift */; };
+		5BDC01A21B64083400F9C59F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01A11B64083400F9C59F /* StoreKit.framework */; };
+		5BDC01AB1B6416FD00F9C59F /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BDC01A91B6416FD00F9C59F /* GoogleSignIn.bundle */; };
+		5BDC01AC1B6416FD00F9C59F /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01AA1B6416FD00F9C59F /* GoogleSignIn.framework */; };
 		5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */; };
 		DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -98,6 +109,25 @@
 		5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		5BDC017F1B63ACC700F9C59F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5BDC01811B63B00F00F9C59F /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
+		5BDC01821B63B00F00F9C59F /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		5BDC01831B63B00F00F9C59F /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
+		5BDC01871B63B71B00F9C59F /* GoogleLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleLoginViewController.swift; sourceTree = "<group>"; };
+		5BDC01891B63F11F00F9C59F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		5BDC018A1B63F11F00F9C59F /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5BDC018B1B63F11F00F9C59F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5BDC018C1B63F11F00F9C59F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5BDC018D1B63F11F00F9C59F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		5BDC018E1B63F11F00F9C59F /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5BDC018F1B63F11F00F9C59F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5BDC01901B63F11F00F9C59F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5BDC01911B63F11F00F9C59F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5BDC01921B63F11F00F9C59F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5BDC01931B63F11F00F9C59F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5BDC019F1B63F24600F9C59F /* Value.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Value.swift; sourceTree = "<group>"; };
+		5BDC01A11B64083400F9C59F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5BDC01A91B6416FD00F9C59F /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		5BDC01AA1B6416FD00F9C59F /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BF1EF001B4993C5002F511B /* ibook-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ibook-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF181B4993C5002F511B /* ibook-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ibook-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,10 +142,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDC01A21B64083400F9C59F /* StoreKit.framework in Frameworks */,
+				5BDC01941B63F11F00F9C59F /* AddressBook.framework in Frameworks */,
+				5BDC019A1B63F11F00F9C59F /* Foundation.framework in Frameworks */,
+				5BDC019C1B63F11F00F9C59F /* Security.framework in Frameworks */,
+				5BDC019D1B63F11F00F9C59F /* SystemConfiguration.framework in Frameworks */,
+				5BDC019E1B63F11F00F9C59F /* UIKit.framework in Frameworks */,
 				5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */,
 				DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */,
 				5BDC01761B639C8D00F9C59F /* FBSDKCoreKit.framework in Frameworks */,
 				5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */,
+				5BDC01AC1B6416FD00F9C59F /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +197,7 @@
 				5B9C08891B4D60EA0024D9DD /* ProfileViewController.swift */,
 				5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */,
 				5BDC01771B639E1700F9C59F /* FBLoginViewController.swift */,
+				5BDC01871B63B71B00F9C59F /* GoogleLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,8 +259,9 @@
 				5B9826861B4D2105001F1656 /* notifs.png */,
 				5B9826871B4D2105001F1656 /* profile.png */,
 				5B9826881B4D2105001F1656 /* search.png */,
-				5BA838871B4B9FAD000E41C6 /* Images.xcassets */,
 				5BDC017F1B63ACC700F9C59F /* Colors.swift */,
+				5BA838871B4B9FAD000E41C6 /* Images.xcassets */,
+				5BDC019F1B63F24600F9C59F /* Value.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -276,6 +315,23 @@
 		81C972A6E3BC5D6A343497C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BDC01A91B6416FD00F9C59F /* GoogleSignIn.bundle */,
+				5BDC01AA1B6416FD00F9C59F /* GoogleSignIn.framework */,
+				5BDC01A11B64083400F9C59F /* StoreKit.framework */,
+				5BDC01891B63F11F00F9C59F /* AddressBook.framework */,
+				5BDC018A1B63F11F00F9C59F /* AssetsLibrary.framework */,
+				5BDC018B1B63F11F00F9C59F /* CoreGraphics.framework */,
+				5BDC018C1B63F11F00F9C59F /* CoreLocation.framework */,
+				5BDC018D1B63F11F00F9C59F /* CoreMotion.framework */,
+				5BDC018E1B63F11F00F9C59F /* CoreText.framework */,
+				5BDC018F1B63F11F00F9C59F /* Foundation.framework */,
+				5BDC01901B63F11F00F9C59F /* MediaPlayer.framework */,
+				5BDC01911B63F11F00F9C59F /* Security.framework */,
+				5BDC01921B63F11F00F9C59F /* SystemConfiguration.framework */,
+				5BDC01931B63F11F00F9C59F /* UIKit.framework */,
+				5BDC01811B63B00F00F9C59F /* GoogleOpenSource.framework */,
+				5BDC01821B63B00F00F9C59F /* GooglePlus.bundle */,
+				5BDC01831B63B00F00F9C59F /* GooglePlus.framework */,
 				5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */,
 				5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */,
 				5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */,
@@ -378,8 +434,10 @@
 				5B9C08841B4D5EA80024D9DD /* HomeView.xib in Resources */,
 				5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */,
 				5B9826981B4D4EA9001F1656 /* RootView.xib in Resources */,
+				5BDC01851B63B00F00F9C59F /* GooglePlus.bundle in Resources */,
 				5B9C08801B4D57C70024D9DD /* DraftView.xib in Resources */,
 				5B9C088C1B4D61050024D9DD /* ProfileView.xib in Resources */,
+				5BDC01AB1B6416FD00F9C59F /* GoogleSignIn.bundle in Resources */,
 				5B9826891B4D2105001F1656 /* draft.png in Resources */,
 				5B9826961B4D4D12001F1656 /* FavouriteView.xib in Resources */,
 				5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */,
@@ -459,9 +517,11 @@
 				5BA8388F1B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld in Sources */,
 				5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */,
 				5B9C08861B4D5F260024D9DD /* NotifyViewController.swift in Sources */,
+				5BDC01881B63B71B00F9C59F /* GoogleLoginViewController.swift in Sources */,
 				5B9826941B4D4C87001F1656 /* FavouriteViewController.swift in Sources */,
 				5BDC01781B639E1700F9C59F /* FBLoginViewController.swift in Sources */,
 				5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */,
+				5BDC01A01B63F24600F9C59F /* Value.swift in Sources */,
 				5B9C087E1B4D57AC0024D9DD /* DraftViewController.swift in Sources */,
 				5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */,
 				5B9C08821B4D5E8B0024D9DD /* HomeViewController.swift in Sources */,

@@ -31,6 +31,7 @@ class FBLoginViewController: BaseTextEditViewController, FBSDKLoginButtonDelegat
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User Logged Out")
+        navigationController?.navigationBar.topItem?.title = "Login"
     }
     
     func returnUserData() {

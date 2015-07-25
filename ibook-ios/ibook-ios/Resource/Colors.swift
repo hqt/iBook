@@ -8,8 +8,12 @@
 
 extension UIColor {
     
-    func mainColor() -> UIColor{
-        return UIColor(red: 178/255, green: 68/255, blue: 49/255, alpha: 1.0)
+    func mainColor() -> UIColor {
+        return UIColor(red: 123/255, green: 31/255, blue: 162/255, alpha: 1.0)
+    }
+    
+    func navColor() -> UIColor {
+        return UIColor(red: 106/255, green: 27/255, blue: 154/255, alpha: 1.0)
     }
     
 }

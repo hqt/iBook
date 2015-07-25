@@ -12,5 +12,8 @@
 #import <Typhoon/Typhoon.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GoogleSignIn/GoogleSignIn.h>
 
 #endif
