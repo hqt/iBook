@@ -40,6 +40,11 @@
 		5BA838911B4B9FAD000E41C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838871B4B9FAD000E41C6 /* Images.xcassets */; };
 		5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */; };
 		5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */; };
+		5BDC01761B639C8D00F9C59F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */; };
+		5BDC01781B639E1700F9C59F /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC01771B639E1700F9C59F /* FBLoginViewController.swift */; };
+		5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */; };
+		5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */; };
+		5BDC01801B63ACC700F9C59F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC017F1B63ACC700F9C59F /* Colors.swift */; };
 		5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */; };
 		DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -88,6 +93,11 @@
 		5BA838871B4B9FAD000E41C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
 		5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextEditViewController.swift; sourceTree = "<group>"; };
+		5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5BDC01771B639E1700F9C59F /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		5BDC017F1B63ACC700F9C59F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5BF1EF001B4993C5002F511B /* ibook-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ibook-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF1EF181B4993C5002F511B /* ibook-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ibook-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +112,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */,
 				DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */,
+				5BDC01761B639C8D00F9C59F /* FBSDKCoreKit.framework in Frameworks */,
+				5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +159,7 @@
 				5B9C08851B4D5F260024D9DD /* NotifyViewController.swift */,
 				5B9C08891B4D60EA0024D9DD /* ProfileViewController.swift */,
 				5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */,
+				5BDC01771B639E1700F9C59F /* FBLoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 				5B9826871B4D2105001F1656 /* profile.png */,
 				5B9826881B4D2105001F1656 /* search.png */,
 				5BA838871B4B9FAD000E41C6 /* Images.xcassets */,
+				5BDC017F1B63ACC700F9C59F /* Colors.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -261,6 +276,9 @@
 		81C972A6E3BC5D6A343497C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */,
+				5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */,
+				5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */,
 				85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */,
 			);
 			name = Frameworks;
@@ -433,6 +451,7 @@
 				5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */,
 				5BA8388C1B4B9FAD000E41C6 /* AppDelegate.swift in Sources */,
 				5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */,
+				5BDC01801B63ACC700F9C59F /* Colors.swift in Sources */,
 				5BA8388D1B4B9FAD000E41C6 /* ApplicationAssembly.swift in Sources */,
 				5B9C088A1B4D60EA0024D9DD /* ProfileViewController.swift in Sources */,
 				5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */,
@@ -441,6 +460,7 @@
 				5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */,
 				5B9C08861B4D5F260024D9DD /* NotifyViewController.swift in Sources */,
 				5B9826941B4D4C87001F1656 /* FavouriteViewController.swift in Sources */,
+				5BDC01781B639E1700F9C59F /* FBLoginViewController.swift in Sources */,
 				5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */,
 				5B9C087E1B4D57AC0024D9DD /* DraftViewController.swift in Sources */,
 				5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */,
@@ -557,6 +577,10 @@
 			baseConfigurationReference = B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -569,6 +593,10 @@
 			baseConfigurationReference = A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

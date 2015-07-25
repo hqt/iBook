@@ -16,16 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var assembly: ApplicationAssembly?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+
         // Override point for customization after application launch.
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let rootViewController = RootViewController()
         let navigationController = UINavigationController(rootViewController: rootViewController)
         navigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationController.navigationBar.barTintColor = UIColor(red: 178/255, green: 68/255, blue: 49/255, alpha: 1.0)
+        navigationController.navigationBar.barTintColor = UIColor().mainColor()
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+            didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject?) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(
+                application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

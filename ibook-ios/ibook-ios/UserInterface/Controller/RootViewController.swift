@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class RootViewController: UIViewController {
     
@@ -25,9 +27,7 @@ class RootViewController: UIViewController {
         
         // Change font color of status bar
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-        
-        // create login controller
-        let viewController = LoginViewController()
+        let viewController = FBLoginViewController()
         viewController.navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.pushViewController(viewController, animated: false)
     }

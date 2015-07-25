@@ -10,5 +10,7 @@
 #define Table_Cells_Bridging_h
 
 #import <Typhoon/Typhoon.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 #endif
