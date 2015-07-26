@@ -17,12 +17,8 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Login process
-        if (!self.loginned()) {
-            self.configureGoogle()
-            self.configureFacebook()
-        }
+        self.configureGoogle()
+        self.configureFacebook()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -31,35 +27,27 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         navigationController?.navigationBar.topItem?.title = "Login to iBook"
     }
     
-    func loginned() -> Bool {
-        // Check login
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            println("User had been login with Facebook")
-            self.navigateToMainController(LoginType.FACEBOOK)
-            return true
-        } else if (GIDSignIn.sharedInstance().currentUser != nil) {
-            println("User had been login with Google")
-            self.navigateToMainController(LoginType.GOOGLE)
-            return true
-        }
-        return false
-    }
-    
     func configureFacebook() {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            println("User has been login with Facebook")
+            self.navigationController?.pushViewController(TestLoginViewController(loginType: LoginType.FACEBOOK),
+                animated: true)
+        }
+        
         // Login facebook
         var loginViewFB: FBSDKLoginButton = FBSDKLoginButton()
-        self.view.addSubview(loginViewFB)
         loginViewFB.frame.size.width = 300
         loginViewFB.frame.size.height = 42
         loginViewFB.center = CGPointMake(self.view.center.x, 530)
         loginViewFB.readPermissions = ["public_profile", "email", "user_friends"]
         loginViewFB.delegate = fbLoginService
+        self.view.addSubview(loginViewFB)
         
         // Callback login
         fbLoginService.subscribe({
             (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             if (error == nil && !result.isCancelled) {
-                println("User had been login with Facebook")
+                println("User has been login with Facebook")
                 self.navigateToMainController(LoginType.FACEBOOK)
             }
         }, logoutCallBack: nil)
@@ -69,20 +57,23 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         // Login google
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = ggLoginService
+        
+        // Login button
         var loginViewGG = GIDSignInButton()
         loginViewGG.frame.size.width = 300
         loginViewGG.frame.size.height = 40
-        self.view.addSubview(loginViewGG)
         loginViewGG.center = CGPointMake(self.view.center.x, 480)
+        self.view.addSubview(loginViewGG)
         
         // Callback login
         ggLoginService.subscribe({
             (user, error) -> Void in
             if (error == nil && user != nil) {
-                println("User had been login with Google")
+                println("User has been login with Google")
                 self.navigateToMainController(LoginType.GOOGLE)
             }
         }, logoutCallBack: nil)
+        GIDSignIn.sharedInstance().signInSilently()
     }
     
     func navigateToMainController(loginType: LoginType!) {

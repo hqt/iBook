@@ -34,7 +34,9 @@ class GGLoginService: NSObject, GIDSignInDelegate {
     // Signin
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
-            self.loginCallBack!(user: user, error: error)
+            if (self.loginCallBack != nil) {
+                self.loginCallBack!(user: user, error: error)
+            }
     }
     
     func logout() {
@@ -47,7 +49,9 @@ class GGLoginService: NSObject, GIDSignInDelegate {
     // Signout
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
         withError error: NSError!) {
-            self.logoutCallBack!(user: user, error: error)
+            if (self.logoutCallBack != nil) {
+                self.logoutCallBack!(user: user, error: error)
+            }
     }
     
 }

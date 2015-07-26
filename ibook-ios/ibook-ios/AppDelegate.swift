@@ -25,7 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationController.navigationBar.barTintColor = UIColor.navColor()
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application,
+            didFinishLaunchingWithOptions: launchOptions)
+
     }
     
     func application(application: UIApplication,
