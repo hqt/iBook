@@ -28,7 +28,6 @@ class RootViewController: UIViewController {
         // Change font color of status bar
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
         let viewController = SocialLoginViewController()
-        viewController.navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.pushViewController(viewController, animated: false)
     }
 

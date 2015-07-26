@@ -57,6 +57,7 @@
 		5BF2C5AE1B6479CB0026251A /* FBLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2C5AD1B6479CB0026251A /* FBLoginService.swift */; };
 		5BF2C5B01B647B000026251A /* GGLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2C5AF1B647B000026251A /* GGLoginService.swift */; };
 		5BF2C5B21B64994A0026251A /* TestLoginSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2C5B11B64994A0026251A /* TestLoginSuccessController.swift */; };
+		5BF2C5B41B64A5F70026251A /* TestLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BF2C5B31B64A5F70026251A /* TestLogin.xib */; };
 		DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		5BF2C5AD1B6479CB0026251A /* FBLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginService.swift; sourceTree = "<group>"; };
 		5BF2C5AF1B647B000026251A /* GGLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGLoginService.swift; sourceTree = "<group>"; };
 		5BF2C5B11B64994A0026251A /* TestLoginSuccessController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestLoginSuccessController.swift; sourceTree = "<group>"; };
+		5BF2C5B31B64A5F70026251A /* TestLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestLogin.xib; sourceTree = "<group>"; };
 		85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ibook_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.release.xcconfig"; sourceTree = "<group>"; };
 		B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ibook-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ibook-ios/Pods-ibook-ios.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				5B9C08831B4D5EA80024D9DD /* HomeView.xib */,
 				5B9C08871B4D5F930024D9DD /* NotifyView.xib */,
 				5B9C088B1B4D61050024D9DD /* ProfileView.xib */,
+				5BF2C5B31B64A5F70026251A /* TestLogin.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9C08881B4D5F930024D9DD /* NotifyView.xib in Resources */,
+				5BF2C5B41B64A5F70026251A /* TestLogin.xib in Resources */,
 				5B98268D1B4D2105001F1656 /* profile.png in Resources */,
 				5BA8388E1B4B9FAD000E41C6 /* Configuration.plist in Resources */,
 				5B98268A1B4D2105001F1656 /* favourite.png in Resources */,

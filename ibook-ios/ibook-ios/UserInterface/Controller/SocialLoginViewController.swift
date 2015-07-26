@@ -12,40 +12,34 @@ import FBSDKLoginKit
 
 class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate {
     
-    var fbLoginService: FBLoginService
-    var ggLoginService: GGLoginService
-    
-    init() {
-        ggLoginService = GGLoginService()
-        fbLoginService = FBLoginService()
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        ggLoginService = GGLoginService()
-        fbLoginService = FBLoginService()
-        super.init(coder: aDecoder)
-    }
+    var fbLoginService: FBLoginService = FBLoginService.sharedInstance()
+    var ggLoginService: GGLoginService = GGLoginService.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.mainColor()
-        navigationController?.navigationBar.topItem?.title = "Login to iBook"
         
         // Login process
-        if (!self.checkLogin()) {
+        if (!self.loginned()) {
             self.configureGoogle()
             self.configureFacebook()
         }
     }
     
-    func checkLogin() -> Bool {
+    override func viewDidAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor.mainColor()
+        self.navigationItem.hidesBackButton = true
+        navigationController?.navigationBar.topItem?.title = "Login to iBook"
+    }
+    
+    func loginned() -> Bool {
         // Check login
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             println("User had been login with Facebook")
+            self.navigateToMainController(LoginType.FACEBOOK)
             return true
         } else if (GIDSignIn.sharedInstance().currentUser != nil) {
             println("User had been login with Google")
+            self.navigateToMainController(LoginType.GOOGLE)
             return true
         }
         return false
@@ -92,8 +86,10 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
     }
     
     func navigateToMainController(loginType: LoginType!) {
-        self.navigationController!.popViewControllerAnimated(false)
-        self.navigationController!.pushViewController(TestLoginViewController(loginType: loginType), animated: true)
+        var viewControllers: NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers)
+        viewControllers.replaceObjectAtIndex(viewControllers.count - 1,
+            withObject: TestLoginViewController(loginType: loginType))
+        self.navigationController!.setViewControllers(viewControllers as [AnyObject], animated: false)
     }
     
     // Stop the UIActivityIndicatorView animation that was started when the user

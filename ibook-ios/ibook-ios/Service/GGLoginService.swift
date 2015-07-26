@@ -11,6 +11,14 @@ class GGLoginService: NSObject, GIDSignInDelegate {
     var loginCallBack: ((user: GIDGoogleUser!, error: NSError?) -> Void)? = nil
     var logoutCallBack: ((user: GIDGoogleUser!, error: NSError?) -> Void)? = nil
     
+    // MARK: - Shared Instance
+    class func sharedInstance() -> GGLoginService {
+        struct Singleton {
+            static var sharedInstance = GGLoginService()
+        }
+        return Singleton.sharedInstance
+    }
+    
     override init() {
         super.init()
         GIDSignIn.sharedInstance().clientID = Value.googleClientID
@@ -27,6 +35,13 @@ class GGLoginService: NSObject, GIDSignInDelegate {
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
         withError error: NSError!) {
             self.loginCallBack!(user: user, error: error)
+    }
+    
+    func logout() {
+        if (GIDSignIn.sharedInstance().currentUser != nil) {
+            GIDSignIn.sharedInstance().signOut()
+            GIDSignIn.sharedInstance().disconnect()
+        }
     }
     
     // Signout

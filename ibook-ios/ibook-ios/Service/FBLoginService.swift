@@ -19,6 +19,14 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
         super.init()
     }
     
+    // MARK: - Shared Instance
+    class func sharedInstance() -> FBLoginService {
+        struct Singleton {
+            static var sharedInstance = FBLoginService()
+        }
+        return Singleton.sharedInstance
+    }
+    
     func subscribe(loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)?,
         logoutCallBack: (() -> Void)?) {
             self.loginCallBack = loginCallBack
@@ -33,15 +41,28 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
             }
     }
     
-   func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+    func logout() {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            var loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+            println("User logged out Facebook")
+            if (logoutCallBack != nil) {
+                logoutCallBack!()
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User logged out Facebook")
+        if (logoutCallBack != nil) {
+            logoutCallBack!()
+        }
     }
     
     static func returnUserData() {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({(connection, result, error) -> Void in
             if ((error) != nil) {
-                // Process error
                 println("Error: \(error)")
             } else {
                 println("fetched user: \(result)")
