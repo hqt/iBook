@@ -27,6 +27,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         navigationController?.navigationBar.topItem?.title = "Login to iBook"
     }
     
+    // configure facebook login
     func configureFacebook() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             println("User has been login with Facebook")
@@ -43,7 +44,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         loginViewFB.delegate = fbLoginService
         self.view.addSubview(loginViewFB)
         
-        // Callback login
+        // Callback login, we set callback logout to nil, because we dont need it
         fbLoginService.subscribe({
             (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
             if (error == nil && !result.isCancelled) {
@@ -53,6 +54,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         }, logoutCallBack: nil)
     }
     
+    // configure google login
     func configureGoogle() {
         // Login google
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -65,7 +67,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         loginViewGG.center = CGPointMake(self.view.center.x, 480)
         self.view.addSubview(loginViewGG)
         
-        // Callback login
+        // Callback login, we set callback logout to nil, because we dont need it
         ggLoginService.subscribe({
             (user, error) -> Void in
             if (error == nil && user != nil) {
@@ -76,6 +78,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         GIDSignIn.sharedInstance().signInSilently()
     }
     
+    // Navigate to the next controller
     func navigateToMainController(loginType: LoginType!) {
         var viewControllers: NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers)
         viewControllers.replaceObjectAtIndex(viewControllers.count - 1,

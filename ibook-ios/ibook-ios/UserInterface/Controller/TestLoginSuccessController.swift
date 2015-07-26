@@ -60,6 +60,7 @@ class TestLoginViewController: BaseTextEditViewController {
         })
     }
     
+    // After logout navigate back to login
     func navigateToLogin() {
         var viewControllers: NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers)
         viewControllers.replaceObjectAtIndex(viewControllers.count - 1,

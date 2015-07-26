@@ -27,12 +27,15 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
         return Singleton.sharedInstance
     }
     
+    // The controller subscribe to this function to get call back after login finish
+    // If you dont want logoutCallBack of loginCallBack you can set it to be nil
     func subscribe(loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)?,
         logoutCallBack: (() -> Void)?) {
             self.loginCallBack = loginCallBack
             self.logoutCallBack = logoutCallBack
     }
     
+    // The action that will be triggered when the login complete
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!,
         error: NSError!) {
             println("User logged in Facebook")
@@ -41,6 +44,7 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
             }
     }
     
+    // Use this function to logout everywhere at any time
     func logout() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             var loginManager = FBSDKLoginManager()
@@ -52,6 +56,7 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
         }
     }
     
+    // The action that will be triggered when logout complete
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User logged out Facebook")
         if (logoutCallBack != nil) {
@@ -59,6 +64,8 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
         }
     }
     
+    // Call this function manually to retrieve user info
+    // Will update this function in the feature to have a callback for needed data
     static func returnUserData() {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
         graphRequest.startWithCompletionHandler({(connection, result, error) -> Void in
