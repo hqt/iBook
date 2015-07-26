@@ -31,7 +31,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             println("User has been login with Facebook")
             self.navigationController?.pushViewController(TestLoginViewController(loginType: LoginType.FACEBOOK),
-                animated: true)
+                animated: false)
         }
         
         // Login facebook

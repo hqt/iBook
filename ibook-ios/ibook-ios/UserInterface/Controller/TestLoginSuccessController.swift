@@ -36,6 +36,7 @@ class TestLoginViewController: BaseTextEditViewController {
     override func viewDidAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.mainColor()
         self.navigationItem.hidesBackButton = true;
+        navigationController?.navigationBar.topItem?.title = "Success"
         let logoutBtn = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain,
             target: self, action: Selector("logout"))
         logoutBtn.tintColor = UIColor.whiteColor()
