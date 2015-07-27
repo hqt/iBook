@@ -14,10 +14,12 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
     
     var fbLoginService: FBLoginService = FBLoginService.sharedInstance()
     var ggLoginService: GGLoginService = GGLoginService.sharedInstance()
+    var gppLoginService: GPPLoginService = GPPLoginService.sharedInstance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureGoogle()
+        // self.configureGoogle()
+        self.configureGooglePlus()
         self.configureFacebook()
     }
     
@@ -76,6 +78,29 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
             }
         }, logoutCallBack: nil)
         GIDSignIn.sharedInstance().signInSilently()
+    }
+    
+    // configure google plus login
+    func configureGooglePlus() {
+        // Login google plus
+        GPPSignIn.sharedInstance().delegate = gppLoginService
+        
+        // Login button
+        var loginViewGPP = GPPSignInButton()
+        loginViewGPP.frame.size.width = 300
+        loginViewGPP.frame.size.height = 40
+        loginViewGPP.center = CGPointMake(self.view.center.x, 480)
+        self.view.addSubview(loginViewGPP)
+        
+        // Callback login, we set callback logout to nil, because we dont need it
+        gppLoginService.subscribe({
+            (auth, error) -> Void in
+            if (error == nil && auth != nil) {
+                println("User has been login with Google")
+                self.navigateToMainController(LoginType.GOOGLE_PLUS)
+            }
+        }, logoutCallBack: nil)
+        GPPSignIn.sharedInstance().trySilentAuthentication()
     }
     
     // Navigate to the next controller

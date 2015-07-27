@@ -37,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url,
                 sourceApplication: sourceApplication,
                 annotation: annotation) || GIDSignIn.sharedInstance().handleURL(url,
-                sourceApplication: sourceApplication, annotation: annotation)
+                sourceApplication: sourceApplication, annotation: annotation) ||
+                GPPURLHandler.handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

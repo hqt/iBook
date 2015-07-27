@@ -25,7 +25,6 @@ class GGLoginService: NSObject, GIDSignInDelegate {
     override init() {
         super.init()
         GIDSignIn.sharedInstance().clientID = Value.googleClientID
-        GIDSignIn.sharedInstance().delegate = self
     }
     
     // The controller subscribe to this function to get call back after login finish

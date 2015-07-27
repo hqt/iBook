@@ -9,14 +9,12 @@
 import UIKit
 
 public enum LoginType {
-    case FACEBOOK, GOOGLE
+    case FACEBOOK, GOOGLE, GOOGLE_PLUS
 }
 
 class TestLoginViewController: BaseTextEditViewController {
     
     var loginType: LoginType? = nil
-    var fbLoginService: FBLoginService = FBLoginService.sharedInstance()
-    var ggLoginService: GGLoginService = GGLoginService.sharedInstance()
     
     init(loginType: LoginType) {
         self.loginType = loginType
@@ -30,7 +28,8 @@ class TestLoginViewController: BaseTextEditViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureFacebook()
-        self.configureGoogle()
+        self.configureGooglePlus()
+        // self.configureGoogle()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -44,16 +43,28 @@ class TestLoginViewController: BaseTextEditViewController {
     }
     
     func configureFacebook() {
-        fbLoginService.subscribe(nil, logoutCallBack: {
+        FBLoginService.sharedInstance().subscribe(nil, logoutCallBack: {
             () -> Void in
             self.navigateToLogin()
         })
     }
     
     func configureGoogle() {
+        var ggLoginService = GGLoginService.sharedInstance()
         GIDSignIn.sharedInstance().delegate = ggLoginService
         ggLoginService.subscribe(nil, logoutCallBack: {
             (user, error) -> Void in
+            if (error == nil) {
+                self.navigateToLogin()
+            }
+        })
+    }
+    
+    func configureGooglePlus() {
+        var gppLoginService = GPPLoginService.sharedInstance()
+        GPPSignIn.sharedInstance().delegate = gppLoginService
+        gppLoginService.subscribe(nil, logoutCallBack: {
+            (error) -> Void in
             if (error == nil) {
                 self.navigateToLogin()
             }
@@ -71,9 +82,11 @@ class TestLoginViewController: BaseTextEditViewController {
     func logout() {
         switch (loginType!) {
         case .FACEBOOK:
-            fbLoginService.logout()
+            FBLoginService.sharedInstance().logout()
         case .GOOGLE:
-            ggLoginService.logout()
+            GGLoginService.sharedInstance().logout()
+        case .GOOGLE_PLUS:
+            GPPLoginService.sharedInstance().logout()
         }
     }
     
