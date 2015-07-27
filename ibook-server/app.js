@@ -56,6 +56,28 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
+var async = require('async');
+var user_service_test = require('./test/service/user_service_test');
+var author_service_test = require('./test/service/author_service_test');
+var tag_service_test = require('./test/service/tag_service_test');
+var book_service_test = require('./test/service/book_service_test');
+var post_service_test = require('./test/service/post_service_test');
+
+async.waterfall([
+
+    function (callback) {
+        //user_service_test.userTest(callback);
+        // author_service_test.authorTest(callback);
+        // post_service_test.postTest(callback);
+    },
+
+    function(callback) {
+        console.log('done');
+    }
+]);
+
+
+
 // development error handler. will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function (err, req, res, next) {

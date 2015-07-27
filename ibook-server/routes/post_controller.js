@@ -7,6 +7,7 @@ var user_service_test = require('../test/service/user_service_test');
 var author_service_test = require('../test/service/author_service_test');
 var tag_service_test = require('../test/service/tag_service_test');
 var book_service_test = require('../test/service/book_service_test');
+var post_service_test = require('../test/service/post_service_test');
 
 exports.newsFeed = function newsFeed (req, res) {
     console.log('new feeds');
@@ -16,7 +17,7 @@ exports.newsFeed = function newsFeed (req, res) {
         function (callback) {
             //user_service_test.userTest(callback);
             //author_service_test.authorTest(callback);
-            book_service_test.bookTest(callback);
+            post_service_test.postTest(callback);
         },
 
         function(callback) {

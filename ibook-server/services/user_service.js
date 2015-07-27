@@ -4,11 +4,11 @@
 
 var async = require('async');
 var pool = require('../config/mysql').pool;
-var co
 
-var createUser = function createUser (username, password, email, firstName, lastName, avatarURL, // user table
-                                      quote, about, homepage,                                    // profile table
-                                      lastLoginIP,                                               // activity table
+var createUser = function createUser (username, password, email, firstName, middleName, lastName, avatarURL, state, // user table
+                                      quote, about, homepage,                 // profile table
+                                      lastLoginIP,                            // activity table
+                                      socialUserId, socialProviderID,         // social provider table
                                       callback) {
     // database connection
     var dbc;
@@ -31,9 +31,10 @@ var createUser = function createUser (username, password, email, firstName, last
                 Password: password,
                 EmailAddress: email,
                 FirstName: firstName,
+                MiddleName: middleName,
                 LastName: lastName,
                 avatarURL: avatarURL,
-                state: 1,
+                state: state,
                 DateCreated: dateCreated,
                 DateUpdated: dateUpdated
             };
@@ -67,7 +68,18 @@ var createUser = function createUser (username, password, email, firstName, last
             dbc.query(query, params, callback);
         },
 
-        // finish insert into profile. call finish
+        // insert authentication provider table
+        function (result, rows, callback) {
+            var params = {
+                SocialUserId: socialUserId,
+                UserId: userId,
+                SocialProviderID: socialProviderID
+            };
+            var query = "INSERT INTO AuthenticationProvider SET ?";
+            dbc.query(query,params, callback);
+        },
+
+        // finish insert into authentication provider. call finish
         function (result, rows, callback) {
             callback(null, userId);
         }
@@ -78,6 +90,42 @@ var createUser = function createUser (username, password, email, firstName, last
             console.log('Error Inserting User');
             console.log(error);
             //report_error(error);
+        } else {
+            callback(null, userData);
+        }
+    });
+
+};
+
+var isUserExist = function isUserExist (socialUserId, socialNetworkProvider, callback) {
+    var dbc;
+    async.waterfall([
+        function (callback) {
+            pool.getConnection(callback);
+        },
+
+        function (connection, callback) {
+            dbc = connection;
+            var query = "SELECT UserID FROM AuthenticationProvider WHERE SocialUserID = ? AND SocialProviderID = ?";
+            dbc.query(query, [socialUserId, socialNetworkProvider], callback);
+        },
+
+        function (results, fields, callback) {
+            if (results.length == 1) {
+                return callback(null, results[0].UserID);
+            } else if (results.length == 0) {
+                return callback(null, 0);
+            } else {
+                //return callback('database error. cannot duplicated socialUserID and socialProviderID', null);
+                return callback(null, 0);
+            }
+        }
+    ],
+        // return user id
+        function (error, userData) {
+        if (dbc) dbc.release();
+        if (error) {
+            console.log(error);
         } else {
             callback(null, userData);
         }
@@ -119,3 +167,4 @@ var deleteUser = function deleteUser(userId, callback) {
 
 module.exports.createUser = createUser;
 module.exports.deleteUser = deleteUser;
+module.exports.isUserExist = isUserExist;

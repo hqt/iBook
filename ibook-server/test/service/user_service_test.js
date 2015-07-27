@@ -11,8 +11,10 @@ module.exports.userTest = function userTest() {
         // insert user
         function (callback) {
             // insert author
-            user_service.createUser('hqt', 'adminkdu', 'huynhquangthao@gmail.com', 'huynh', 'thao',
-                'www.google.com', 'nothing impossible', '95$', 'www.google.com', 13, callback);
+            user_service.createUser('hqt', 'adminkdu', 'huynhquangthao@gmail.com', 'huynh', 'quang', 'thao','www.google.com', 1,
+                'nothing impossible', '95$', 'abc',
+                13,
+                10, 1, callback);
         },
 
         // get user id and remove user
@@ -21,9 +23,14 @@ module.exports.userTest = function userTest() {
             user_service.deleteUser(result, callback);
         },
 
-        // get result
+        // get result and check login
         function (result, callback) {
             console.log('affected rows: ' + result);
+            user_service.isUserExist(10, 1, callback);
+        },
+
+        function (result, callback) {
+            console.log('usr id: ' + result);
         }
 
     ]);

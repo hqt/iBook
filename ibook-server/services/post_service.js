@@ -40,7 +40,7 @@ var insertTopic = function insertPost(userId, referenceId, type, topicTitle, top
         // get the result
         function(result, rows, callback) {
             var topicId = result.insertId;
-            callback(null, genreId);
+            callback(null, topicId);
 
         },
 
@@ -91,7 +91,7 @@ var insertReply = function insertReply(userId, referenceId, type, topicTitle, to
         // get the result
         function(result, rows, callback) {
             var topicId = result.insertId;
-            callback(null, genreId);
+            callback(null, topicId);
 
         },
 
