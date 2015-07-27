@@ -9,7 +9,6 @@
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-
 class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
     
     var loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)? = nil

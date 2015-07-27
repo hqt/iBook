@@ -8,17 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B0CBDDD1B4F95E20008B079 /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
-		5B10F2551B665F4C000BF7FC /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2521B665F4C000BF7FC /* GoogleOpenSource.framework */; };
-		5B10F2561B665F4C000BF7FC /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B10F2531B665F4C000BF7FC /* GooglePlus.bundle */; };
-		5B10F2571B665F4C000BF7FC /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2541B665F4C000BF7FC /* GooglePlus.framework */; };
-		5B10F25F1B665FCF000BF7FC /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2581B665FCF000BF7FC /* AssetsLibrary.framework */; };
-		5B10F2601B665FCF000BF7FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2591B665FCF000BF7FC /* CoreGraphics.framework */; };
-		5B10F2611B665FCF000BF7FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F25A1B665FCF000BF7FC /* CoreLocation.framework */; };
-		5B10F2621B665FCF000BF7FC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F25B1B665FCF000BF7FC /* CoreMotion.framework */; };
-		5B10F2631B665FCF000BF7FC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F25C1B665FCF000BF7FC /* CoreText.framework */; };
-		5B10F2641B665FCF000BF7FC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F25D1B665FCF000BF7FC /* MediaPlayer.framework */; };
-		5B10F2651B665FCF000BF7FC /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F25E1B665FCF000BF7FC /* Security.framework */; };
 		5B10F2671B66602D000BF7FC /* GPPLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10F2661B66602D000BF7FC /* GPPLoginService.swift */; };
+		5B10F29A1B6672AC000BF7FC /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B10F2961B6672AC000BF7FC /* FacebookSDKStrings.bundle */; };
+		5B10F29B1B6672AC000BF7FC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2971B6672AC000BF7FC /* FBSDKCoreKit.framework */; };
+		5B10F29C1B6672AC000BF7FC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2981B6672AC000BF7FC /* FBSDKLoginKit.framework */; };
+		5B10F29D1B6672AC000BF7FC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2991B6672AC000BF7FC /* FBSDKShareKit.framework */; };
 		5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
 		5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */; };
 		5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E911B4BE9F7003E55DE /* LoginViewController.swift */; };
@@ -51,10 +45,7 @@
 		5BA838911B4B9FAD000E41C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838871B4B9FAD000E41C6 /* Images.xcassets */; };
 		5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */; };
 		5BAB71411B4EB5C600C1E47C /* BaseTextEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */; };
-		5BDC01761B639C8D00F9C59F /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */; };
 		5BDC01781B639E1700F9C59F /* SocialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC01771B639E1700F9C59F /* SocialLoginViewController.swift */; };
-		5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */; };
-		5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */; };
 		5BDC01801B63ACC700F9C59F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC017F1B63ACC700F9C59F /* Colors.swift */; };
 		5BDC01941B63F11F00F9C59F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC01891B63F11F00F9C59F /* AddressBook.framework */; };
 		5BDC019A1B63F11F00F9C59F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BDC018F1B63F11F00F9C59F /* Foundation.framework */; };
@@ -83,17 +74,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B10F2521B665F4C000BF7FC /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
-		5B10F2531B665F4C000BF7FC /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
-		5B10F2541B665F4C000BF7FC /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
-		5B10F2581B665FCF000BF7FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
-		5B10F2591B665FCF000BF7FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5B10F25A1B665FCF000BF7FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		5B10F25B1B665FCF000BF7FC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		5B10F25C1B665FCF000BF7FC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		5B10F25D1B665FCF000BF7FC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		5B10F25E1B665FCF000BF7FC /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5B10F2661B66602D000BF7FC /* GPPLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPPLoginService.swift; sourceTree = "<group>"; };
+		5B10F2961B6672AC000BF7FC /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
+		5B10F2971B6672AC000BF7FC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5B10F2981B6672AC000BF7FC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5B10F2991B6672AC000BF7FC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		5B745E881B4BC8F8003E55DE /* ILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginService.swift; sourceTree = "<group>"; };
 		5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalLoginService.swift; sourceTree = "<group>"; };
 		5B745E911B4BE9F7003E55DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -127,10 +112,7 @@
 		5BA838871B4B9FAD000E41C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = ../LaunchScreen.xib; sourceTree = "<group>"; };
 		5BAB71401B4EB5C600C1E47C /* BaseTextEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextEditViewController.swift; sourceTree = "<group>"; };
-		5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5BDC01771B639E1700F9C59F /* SocialLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialLoginViewController.swift; sourceTree = "<group>"; };
-		5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		5BDC017F1B63ACC700F9C59F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		5BDC01891B63F11F00F9C59F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		5BDC018F1B63F11F00F9C59F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,24 +140,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B10F25F1B665FCF000BF7FC /* AssetsLibrary.framework in Frameworks */,
-				5B10F2601B665FCF000BF7FC /* CoreGraphics.framework in Frameworks */,
-				5B10F2611B665FCF000BF7FC /* CoreLocation.framework in Frameworks */,
-				5B10F2621B665FCF000BF7FC /* CoreMotion.framework in Frameworks */,
-				5B10F2631B665FCF000BF7FC /* CoreText.framework in Frameworks */,
-				5B10F2641B665FCF000BF7FC /* MediaPlayer.framework in Frameworks */,
-				5B10F2651B665FCF000BF7FC /* Security.framework in Frameworks */,
 				5BDC01941B63F11F00F9C59F /* AddressBook.framework in Frameworks */,
 				5BDC019A1B63F11F00F9C59F /* Foundation.framework in Frameworks */,
+				5B10F29D1B6672AC000BF7FC /* FBSDKShareKit.framework in Frameworks */,
+				5B10F29C1B6672AC000BF7FC /* FBSDKLoginKit.framework in Frameworks */,
 				5BDC019D1B63F11F00F9C59F /* SystemConfiguration.framework in Frameworks */,
 				5BDC01A21B64083400F9C59F /* StoreKit.framework in Frameworks */,
-				5B10F2571B665F4C000BF7FC /* GooglePlus.framework in Frameworks */,
-				5B10F2551B665F4C000BF7FC /* GoogleOpenSource.framework in Frameworks */,
 				5BDC019E1B63F11F00F9C59F /* UIKit.framework in Frameworks */,
-				5BDC017C1B639F8C00F9C59F /* FBSDKShareKit.framework in Frameworks */,
+				5B10F29B1B6672AC000BF7FC /* FBSDKCoreKit.framework in Frameworks */,
 				DA7C094BCF4F39D5DE3DAF56 /* Pods_ibook_ios.framework in Frameworks */,
-				5BDC01761B639C8D00F9C59F /* FBSDKCoreKit.framework in Frameworks */,
-				5BDC017B1B639F8C00F9C59F /* FBSDKLoginKit.framework in Frameworks */,
 				5BDC01AC1B6416FD00F9C59F /* GoogleSignIn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,11 +279,11 @@
 		5BF1EEF71B4993C5002F511B = {
 			isa = PBXGroup;
 			children = (
+				81C972A6E3BC5D6A343497C8 /* Frameworks */,
 				5BA8387C1B4B9FAD000E41C6 /* ibook-ios */,
 				5BF1EF1B1B4993C5002F511B /* ibook-iosTests */,
-				5BF1EF011B4993C5002F511B /* Products */,
 				17BB8C1A858C381BEAA8B78B /* Pods */,
-				81C972A6E3BC5D6A343497C8 /* Frameworks */,
+				5BF1EF011B4993C5002F511B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -343,16 +316,10 @@
 		81C972A6E3BC5D6A343497C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B10F2581B665FCF000BF7FC /* AssetsLibrary.framework */,
-				5B10F2591B665FCF000BF7FC /* CoreGraphics.framework */,
-				5B10F25A1B665FCF000BF7FC /* CoreLocation.framework */,
-				5B10F25B1B665FCF000BF7FC /* CoreMotion.framework */,
-				5B10F25C1B665FCF000BF7FC /* CoreText.framework */,
-				5B10F25D1B665FCF000BF7FC /* MediaPlayer.framework */,
-				5B10F25E1B665FCF000BF7FC /* Security.framework */,
-				5B10F2521B665F4C000BF7FC /* GoogleOpenSource.framework */,
-				5B10F2531B665F4C000BF7FC /* GooglePlus.bundle */,
-				5B10F2541B665F4C000BF7FC /* GooglePlus.framework */,
+				5B10F2961B6672AC000BF7FC /* FacebookSDKStrings.bundle */,
+				5B10F2971B6672AC000BF7FC /* FBSDKCoreKit.framework */,
+				5B10F2981B6672AC000BF7FC /* FBSDKLoginKit.framework */,
+				5B10F2991B6672AC000BF7FC /* FBSDKShareKit.framework */,
 				5BDC01A91B6416FD00F9C59F /* GoogleSignIn.bundle */,
 				5BDC01AA1B6416FD00F9C59F /* GoogleSignIn.framework */,
 				5BDC01A11B64083400F9C59F /* StoreKit.framework */,
@@ -360,9 +327,6 @@
 				5BDC018F1B63F11F00F9C59F /* Foundation.framework */,
 				5BDC01921B63F11F00F9C59F /* SystemConfiguration.framework */,
 				5BDC01931B63F11F00F9C59F /* UIKit.framework */,
-				5BDC01791B639F8C00F9C59F /* FBSDKLoginKit.framework */,
-				5BDC017A1B639F8C00F9C59F /* FBSDKShareKit.framework */,
-				5BDC01751B639C8D00F9C59F /* FBSDKCoreKit.framework */,
 				85EC97B678FC6F6377D3158D /* Pods_ibook_ios.framework */,
 			);
 			name = Frameworks;
@@ -468,8 +432,8 @@
 				5BDC01AB1B6416FD00F9C59F /* GoogleSignIn.bundle in Resources */,
 				5B9826891B4D2105001F1656 /* draft.png in Resources */,
 				5B9826961B4D4D12001F1656 /* FavouriteView.xib in Resources */,
-				5B10F2561B665F4C000BF7FC /* GooglePlus.bundle in Resources */,
 				5BA838921B4B9FAD000E41C6 /* LaunchScreen.xib in Resources */,
+				5B10F29A1B6672AC000BF7FC /* FacebookSDKStrings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,10 +632,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9627AF6736BBFFD64A6FAC4 /* Pods-ibook-ios.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"./**",
 				);
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -684,10 +650,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A3515D13ED8FBC65A03510C0 /* Pods-ibook-ios.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"./**",
 				);
 				INFOPLIST_FILE = "ibook-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
