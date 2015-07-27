@@ -10,15 +10,17 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate {
+class SocialLoginViewController: BaseTextEditViewController {
     
+    // var ggLoginService: GGLoginService = GGLoginService.sharedInstance()
     var fbLoginService: FBLoginService = FBLoginService.sharedInstance()
-    var ggLoginService: GGLoginService = GGLoginService.sharedInstance()
     var gppLoginService: GPPLoginService = GPPLoginService.sharedInstance()
+    var loginViewGPP: GPPSignInButton? = nil
+    var loginViewFB: FBSDKLoginButton? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.configureGoogle()
+        self.configureUI();
         self.configureGooglePlus()
         self.configureFacebook()
     }
@@ -29,6 +31,71 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         navigationController?.navigationBar.topItem?.title = "Login to iBook"
     }
     
+    // Configure UI
+    func configureUI() {
+        // Facebook login button
+        loginViewGPP = GPPSignInButton()
+        loginViewGPP!.frame.size.width = 300
+        loginViewGPP!.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(loginViewGPP!)
+        
+        // Google plus login button
+        loginViewFB = FBSDKLoginButton()
+        loginViewFB!.readPermissions = ["public_profile", "email", "user_friends"]
+        loginViewFB!.delegate = fbLoginService
+        loginViewFB!.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.addSubview(loginViewFB!)
+        
+        // Constraints
+        var viewsDictionary = [
+            "fb" : loginViewFB!,
+            "gg" : loginViewGPP!
+        ]
+        
+        // Facebook horizontal constraints
+        let fb_constraint_V: Array = NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[fb(40)]",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: viewsDictionary
+        )
+        loginViewFB!.addConstraints(fb_constraint_V)
+        
+        // Google plus horizontal constraints
+        let gg_constraint_V: Array = NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[gg(42)]",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: viewsDictionary
+        )
+        loginViewGPP!.addConstraints(gg_constraint_V)
+        
+        // Horizontal constrainst
+        let fb_align_H: Array = NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-[fb]-|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: viewsDictionary
+        )
+        let gg_align_H: Array = NSLayoutConstraint.constraintsWithVisualFormat(
+            "H:|-[gg]-|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: viewsDictionary
+        )
+        view.addConstraints(fb_align_H)
+        view.addConstraints(gg_align_H)
+        
+        // Vertical constraints
+        let align_V: Array = NSLayoutConstraint.constraintsWithVisualFormat(
+            "V:[gg]-[fb]-|",
+            options: NSLayoutFormatOptions(0),
+            metrics: nil,
+            views: viewsDictionary
+        )
+        view.addConstraints(align_V)
+    }
+    
     // configure facebook login
     func configureFacebook() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
@@ -36,15 +103,6 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
             self.navigationController?.pushViewController(TestLoginViewController(loginType: LoginType.FACEBOOK),
                 animated: false)
         }
-        
-        // Login facebook
-        var loginViewFB: FBSDKLoginButton = FBSDKLoginButton()
-        loginViewFB.frame.size.width = 300
-        loginViewFB.frame.size.height = 42
-        loginViewFB.center = CGPointMake(self.view.center.x, 530)
-        loginViewFB.readPermissions = ["public_profile", "email", "user_friends"]
-        loginViewFB.delegate = fbLoginService
-        self.view.addSubview(loginViewFB)
         
         // Callback login, we set callback logout to nil, because we dont need it
         fbLoginService.subscribe({
@@ -56,41 +114,9 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         }, logoutCallBack: nil)
     }
     
-    // configure google login
-    func configureGoogle() {
-        // Login google
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().delegate = ggLoginService
-        
-        // Login button
-        var loginViewGG = GIDSignInButton()
-        loginViewGG.frame.size.width = 300
-        loginViewGG.frame.size.height = 40
-        loginViewGG.center = CGPointMake(self.view.center.x, 480)
-        self.view.addSubview(loginViewGG)
-        
-        // Callback login, we set callback logout to nil, because we dont need it
-        ggLoginService.subscribe({
-            (user, error) -> Void in
-            if (error == nil && user != nil) {
-                println("User has been login with Google")
-                self.navigateToMainController(LoginType.GOOGLE)
-            }
-        }, logoutCallBack: nil)
-        GIDSignIn.sharedInstance().signInSilently()
-    }
-    
     // configure google plus login
     func configureGooglePlus() {
-        // Login google plus
         GPPSignIn.sharedInstance().delegate = gppLoginService
-        
-        // Login button
-        var loginViewGPP = GPPSignInButton()
-        loginViewGPP.frame.size.width = 300
-        loginViewGPP.frame.size.height = 40
-        loginViewGPP.center = CGPointMake(self.view.center.x, 480)
-        self.view.addSubview(loginViewGPP)
         
         // Callback login, we set callback logout to nil, because we dont need it
         gppLoginService.subscribe({
@@ -99,7 +125,7 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
                 println("User has been login with Google")
                 self.navigateToMainController(LoginType.GOOGLE_PLUS)
             }
-        }, logoutCallBack: nil)
+            }, logoutCallBack: nil)
         GPPSignIn.sharedInstance().trySilentAuthentication()
     }
     
@@ -111,22 +137,28 @@ class SocialLoginViewController: BaseTextEditViewController, GIDSignInUIDelegate
         self.navigationController!.setViewControllers(viewControllers as [AnyObject], animated: false)
     }
     
-    // Stop the UIActivityIndicatorView animation that was started when the user
-    // pressed the Sign In button
-    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
-        // myActivityIndicator.stopAnimating()
-    }
+    //    // configure google login
+    //    func configureGoogle() {
+    //        // Login google
+    //        GIDSignIn.sharedInstance().uiDelegate = self
+    //        GIDSignIn.sharedInstance().delegate = ggLoginService
+    //
+    //        // Login button
+    //        var loginViewGG = GIDSignInButton()
+    //        loginViewGG.frame.size.width = 300
+    //        loginViewGG.frame.size.height = 40
+    //        loginViewGG.center = CGPointMake(self.view.center.x, 480)
+    //        self.view.addSubview(loginViewGG)
+    //
+    //        // Callback login, we set callback logout to nil, because we dont need it
+    //        ggLoginService.subscribe({
+    //            (user, error) -> Void in
+    //            if (error == nil && user != nil) {
+    //                println("User has been login with Google")
+    //                self.navigateToMainController(LoginType.GOOGLE)
+    //            }
+    //        }, logoutCallBack: nil)
+    //        GIDSignIn.sharedInstance().signInSilently()
+    //    }
     
-    // Present a view that prompts the user to sign in with Google
-    func signIn(signIn: GIDSignIn!,
-        presentViewController viewController: UIViewController!) {
-            self.presentViewController(viewController, animated: true, completion: nil)
-    }
-    
-    // Dismiss the "Sign in with Google" view
-    func signIn(signIn: GIDSignIn!,
-        dismissViewController viewController: UIViewController!) {
-            self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
 }
