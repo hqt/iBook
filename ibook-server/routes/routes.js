@@ -7,6 +7,7 @@ var express = require('express');
 var profile_controller = require('../routes/profile_controller');
 var post_controller = require('../routes/post_controller');
 var user_api = require('../routes/api/user_api');
+var book_api = require('../routes/api/book_api');
 
 module.exports = function(app){
     app.get('/', post_controller.newsFeed);
@@ -14,4 +15,6 @@ module.exports = function(app){
 
     // api functions
     app.post('/signup_api', user_api.signInAPI);
+    app.get('/bookgenre_api', book_api.getAllBookGenre);
+    app.post('/bookgenre_api', book_api.subscribeBookGenre);
 };
