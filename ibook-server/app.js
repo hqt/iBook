@@ -68,6 +68,7 @@ async.waterfall([
     function (callback) {
         //user_service_test.userTest(callback);
         // author_service_test.authorTest(callback);
+        book_service_test.bookTest(callback);
         // post_service_test.postTest(callback);
     },
 
