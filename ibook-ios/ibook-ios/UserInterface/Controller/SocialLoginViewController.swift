@@ -107,11 +107,23 @@ class SocialLoginViewController: BaseTextEditViewController {
         NSURLConnection.POST(AppDelegate.server + PARAM_LOGIN.URL, JSON: params)
             .then {
                 (body: NSDictionary!) in
-                self.navigateToMainController(loginType)
+                self.handleResult(body, loginType: loginType)
             }.catch(policy: CatchPolicy.AllErrors) {
                 error in
                 println(error.localizedDescription)
                 self.alertError()
+        }
+    }
+    
+    // FIXME: problem with closure in PromiseKit - Swift ---> It is a fucking compiler
+    func handleResult(body: NSDictionary!, loginType: LoginType!) {
+        if (body[PARAM_LOGIN.ERROR] != nil) {
+            println(body[PARAM_LOGIN.ERROR])
+            self.alertError()
+        } else {
+            println(body[PARAM_LOGIN.USER_ID])
+            println(body[PARAM_LOGIN.RESULT])
+            self.navigateToMainController(loginType)
         }
     }
     

@@ -18,7 +18,7 @@ struct PARAM_LOGIN {
     static let ERROR = "error"
     static let USER_ID = "user_id"
     static let RESULT = "result"
-    static let GOOGLE_PROVIDER = "google"
+    static let GOOGLE_PROVIDER = "google plus"
     static let FACEBOOK_PROVIDER = "facebook"
-    static let URL = "/signin_api"
+    static let URL = "/signup_api"
 }
