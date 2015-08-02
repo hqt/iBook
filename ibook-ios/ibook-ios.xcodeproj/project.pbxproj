@@ -7,19 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B0CBDDD1B4F95E20008B079 /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
 		5B10F2671B66602D000BF7FC /* GPPLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10F2661B66602D000BF7FC /* GPPLoginService.swift */; };
 		5B10F29A1B6672AC000BF7FC /* FacebookSDKStrings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B10F2961B6672AC000BF7FC /* FacebookSDKStrings.bundle */; };
 		5B10F29B1B6672AC000BF7FC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2971B6672AC000BF7FC /* FBSDKCoreKit.framework */; };
 		5B10F29C1B6672AC000BF7FC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2981B6672AC000BF7FC /* FBSDKLoginKit.framework */; };
 		5B10F29D1B6672AC000BF7FC /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B10F2991B6672AC000BF7FC /* FBSDKShareKit.framework */; };
-		5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E881B4BC8F8003E55DE /* ILoginService.swift */; };
-		5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */; };
-		5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E911B4BE9F7003E55DE /* LoginViewController.swift */; };
 		5B745E971B4BE9F7003E55DE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E921B4BE9F7003E55DE /* RootViewController.swift */; };
-		5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B745E941B4BE9F7003E55DE /* LoginView.xib */; };
-		5B9100921B4E5C8D00CC8F28 /* LocalLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9100911B4E5C8D00CC8F28 /* LocalLoginTest.swift */; };
-		5B9100931B4E5F1A00CC8F28 /* LocalLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */; };
 		5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */; };
 		5B9826891B4D2105001F1656 /* draft.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9826831B4D2105001F1656 /* draft.png */; };
 		5B98268A1B4D2105001F1656 /* favourite.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9826841B4D2105001F1656 /* favourite.png */; };
@@ -80,12 +73,7 @@
 		5B10F2971B6672AC000BF7FC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		5B10F2981B6672AC000BF7FC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5B10F2991B6672AC000BF7FC /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		5B745E881B4BC8F8003E55DE /* ILoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginService.swift; sourceTree = "<group>"; };
-		5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalLoginService.swift; sourceTree = "<group>"; };
-		5B745E911B4BE9F7003E55DE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B745E921B4BE9F7003E55DE /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		5B745E941B4BE9F7003E55DE /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
-		5B9100911B4E5C8D00CC8F28 /* LocalLoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalLoginTest.swift; sourceTree = "<group>"; };
 		5B98267F1B4D0E49001F1656 /* ServiceAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		5B9826831B4D2105001F1656 /* draft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draft.png; sourceTree = "<group>"; };
 		5B9826841B4D2105001F1656 /* favourite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favourite.png; sourceTree = "<group>"; };
@@ -177,8 +165,6 @@
 		5B745E871B4BC8DA003E55DE /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5B745E881B4BC8F8003E55DE /* ILoginService.swift */,
-				5B745E8A1B4BC98B003E55DE /* LocalLoginService.swift */,
 				5BF2C5AD1B6479CB0026251A /* FBLoginService.swift */,
 				5B10F2661B66602D000BF7FC /* GPPLoginService.swift */,
 				5BAD7CCC1B6DDAEE00A82A09 /* ISocialLoginService.swift */,
@@ -189,7 +175,6 @@
 		5B745E901B4BE9F7003E55DE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5B745E911B4BE9F7003E55DE /* LoginViewController.swift */,
 				5B745E921B4BE9F7003E55DE /* RootViewController.swift */,
 				5BE3D5251B4CDBDC00F43B58 /* TabBarViewController.swift */,
 				5B9826931B4D4C87001F1656 /* FavouriteViewController.swift */,
@@ -209,7 +194,6 @@
 			children = (
 				5BA838891B4B9FAD000E41C6 /* LaunchScreen.xib */,
 				5B9826971B4D4EA9001F1656 /* RootView.xib */,
-				5B745E941B4BE9F7003E55DE /* LoginView.xib */,
 				5B9826951B4D4D12001F1656 /* FavouriteView.xib */,
 				5B9C087F1B4D57C70024D9DD /* DraftView.xib */,
 				5B9C08831B4D5EA80024D9DD /* HomeView.xib */,
@@ -264,8 +248,8 @@
 				5B9826871B4D2105001F1656 /* profile.png */,
 				5B9826881B4D2105001F1656 /* search.png */,
 				5BDC017F1B63ACC700F9C59F /* Colors.swift */,
-				5BA838871B4B9FAD000E41C6 /* Images.xcassets */,
 				5BDC019F1B63F24600F9C59F /* Value.swift */,
+				5BA838871B4B9FAD000E41C6 /* Images.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -304,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				5BF1EF1C1B4993C5002F511B /* Supporting Files */,
-				5B9100911B4E5C8D00CC8F28 /* LocalLoginTest.swift */,
 			);
 			path = "ibook-iosTests";
 			sourceTree = "<group>";
@@ -429,7 +412,6 @@
 				5BA838911B4B9FAD000E41C6 /* Images.xcassets in Resources */,
 				5B98268C1B4D2105001F1656 /* notifs.png in Resources */,
 				5B9C08841B4D5EA80024D9DD /* HomeView.xib in Resources */,
-				5B745E981B4BE9F7003E55DE /* LoginView.xib in Resources */,
 				5BAD7CCB1B6DD50B00A82A09 /* SocialLoginView.xib in Resources */,
 				5B9826981B4D4EA9001F1656 /* RootView.xib in Resources */,
 				5B9C08801B4D57C70024D9DD /* DraftView.xib in Resources */,
@@ -504,7 +486,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B745E961B4BE9F7003E55DE /* LoginViewController.swift in Sources */,
 				5BA8388C1B4B9FAD000E41C6 /* AppDelegate.swift in Sources */,
 				5BE3D5261B4CDBDC00F43B58 /* TabBarViewController.swift in Sources */,
 				5BDC01801B63ACC700F9C59F /* Colors.swift in Sources */,
@@ -516,7 +497,6 @@
 				5BA8388F1B4B9FAD000E41C6 /* ibook_ios.xcdatamodeld in Sources */,
 				5BF2C5B21B64994A0026251A /* TestLoginSuccessController.swift in Sources */,
 				5BF2C5AE1B6479CB0026251A /* FBLoginService.swift in Sources */,
-				5B745E8B1B4BC98B003E55DE /* LocalLoginService.swift in Sources */,
 				5B10F2671B66602D000BF7FC /* GPPLoginService.swift in Sources */,
 				5B9C08861B4D5F260024D9DD /* NotifyViewController.swift in Sources */,
 				5B9826941B4D4C87001F1656 /* FavouriteViewController.swift in Sources */,
@@ -524,7 +504,6 @@
 				5B9826801B4D0E49001F1656 /* ServiceAssembly.swift in Sources */,
 				5BDC01A01B63F24600F9C59F /* Value.swift in Sources */,
 				5B9C087E1B4D57AC0024D9DD /* DraftViewController.swift in Sources */,
-				5B745E891B4BC8F8003E55DE /* ILoginService.swift in Sources */,
 				5B9C08821B4D5E8B0024D9DD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,9 +512,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B9100921B4E5C8D00CC8F28 /* LocalLoginTest.swift in Sources */,
-				5B0CBDDD1B4F95E20008B079 /* ILoginService.swift in Sources */,
-				5B9100931B4E5F1A00CC8F28 /* LocalLoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

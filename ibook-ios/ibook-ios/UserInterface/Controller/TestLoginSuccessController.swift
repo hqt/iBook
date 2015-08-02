@@ -27,8 +27,6 @@ class TestLoginViewController: BaseTextEditViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureFacebook()
-        self.configureGooglePlus()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,6 +37,9 @@ class TestLoginViewController: BaseTextEditViewController {
             target: self, action: Selector("logout"))
         logoutBtn.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = logoutBtn
+        
+        self.configureFacebook()
+        self.configureGooglePlus()
     }
     
     func configureFacebook() {
@@ -65,6 +66,11 @@ class TestLoginViewController: BaseTextEditViewController {
         viewControllers.replaceObjectAtIndex(viewControllers.count - 1,
             withObject: SocialLoginViewController())
         self.navigationController!.setViewControllers(viewControllers as [AnyObject], animated: false)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        FBLoginService.sharedInstance().unSubscribe()
+        GPPLoginService.sharedInstance().unSubscribe()
     }
     
     func logout() {

@@ -8,11 +8,9 @@
 
 class GPPLoginService: NSObject, GPPSignInDelegate, ISocialLoginService {
     
-    var loginCallBack: ((auth: GTMOAuth2Authentication!, error: NSError?) -> Void)? = nil
+    var loginCallBack: ((ticket: GTLServiceTicket!, person: GTLPlusPerson!, error: NSError?) -> Void)? = nil
     var logoutCallBack: ((error: NSError?) -> Void)? = nil
-    
-    // We can get this param to get info from current loginned user
-    var auth: GTMOAuth2Authentication? = nil
+    var person: AnyObject? = nil
     
     // MARK: - Shared Instance
     class func sharedInstance() -> GPPLoginService {
@@ -28,10 +26,7 @@ class GPPLoginService: NSObject, GPPSignInDelegate, ISocialLoginService {
     }
     
     func finishedWithAuth(auth: GTMOAuth2Authentication!, error: NSError!) {
-        if (loginCallBack != nil) {
-            self.auth = auth
-            loginCallBack!(auth: auth, error: error)
-        }
+        self.returnUserData()
     }
     
     func didDisconnectWithError(error: NSError!) {
@@ -42,10 +37,15 @@ class GPPLoginService: NSObject, GPPSignInDelegate, ISocialLoginService {
     
     // The controller subscribe to this function to get call back after login finish
     // If you dont want logoutCallBack of loginCallBack you can set it to be nil
-    func subscribe(loginCallBack: ((auth: GTMOAuth2Authentication!, error: NSError?) -> Void)?,
+    func subscribe(loginCallBack: ((ticket: GTLServiceTicket!, person: GTLPlusPerson!, error: NSError?) -> Void)?,
         logoutCallBack: ((error: NSError?) -> Void)?) {
             self.loginCallBack = loginCallBack
             self.logoutCallBack = logoutCallBack
+    }
+    
+    func unSubscribe() {
+        loginCallBack = nil
+        logoutCallBack = nil
     }
     
     // Use this function to logout anytime
@@ -59,5 +59,21 @@ class GPPLoginService: NSObject, GPPSignInDelegate, ISocialLoginService {
     // Use this function to login anytime
     func login() {
         GPPSignIn.sharedInstance().authenticate()
+    }
+    
+    // Call this function manually to retrieve user info
+    // Will update this function in the feature to have a callback for needed data
+    func returnUserData() {
+        var queryPlus: AnyObject! = GTLQueryPlus.queryForPeopleGetWithUserId("me")
+        var plusService = GTLServicePlus()
+        plusService.retryEnabled = true
+        plusService.authorizer = GPPSignIn.sharedInstance().authentication
+        plusService.executeQuery(queryPlus as! GTLQueryPlus) {
+            (ticket, person, error) in
+            if (self.loginCallBack != nil) {
+                self.loginCallBack!(ticket: ticket, person: person as! GTLPlusPerson, error: error)
+                self.person = person
+            }
+        }
     }
 }

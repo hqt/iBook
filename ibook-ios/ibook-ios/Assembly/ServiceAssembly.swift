@@ -11,11 +11,4 @@ import Typhoon
 @objc(ServiceAssembly)
 public class ServiceAssembly: TyphoonAssembly {
 
-    public dynamic func loginService() -> AnyObject {
-        return TyphoonDefinition.withClass(LocalLoginService.self)
-    }
-
-    //    public dynamic func loginService() -> AnyObject {
-    //        return TyphoonDefinition.withClass(RemoteLoginImp.self)
-    //    }
 }

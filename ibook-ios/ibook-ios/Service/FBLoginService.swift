@@ -11,8 +11,10 @@ import FBSDKLoginKit
 
 class FBLoginService: NSObject, ISocialLoginService {
     
-    var loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)? = nil
+    var loginCallBack: ((connection: FBSDKGraphRequestConnection!,
+        result: AnyObject!, error: NSError!) -> Void)? = nil
     var logoutCallBack: (() -> Void)? = nil
+    var result: AnyObject? = nil
     
     override init() {
         super.init()
@@ -28,10 +30,16 @@ class FBLoginService: NSObject, ISocialLoginService {
     
     // The controller subscribe to this function to get call back after login finish
     // If you dont want logoutCallBack of loginCallBack you can set it to be nil
-    func subscribe(loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)?,
+    func subscribe(loginCallBack: ((connection: FBSDKGraphRequestConnection!,
+        result: AnyObject!, error: NSError!) -> Void)?,
         logoutCallBack: (() -> Void)?) {
             self.loginCallBack = loginCallBack
             self.logoutCallBack = logoutCallBack
+    }
+    
+    func unSubscribe() {
+        loginCallBack = nil
+        logoutCallBack = nil
     }
     
     // Use this function to logout at any time
@@ -52,25 +60,19 @@ class FBLoginService: NSObject, ISocialLoginService {
         loginManager.logInWithPublishPermissions([], handler: {
             (result, error) -> Void in
             println("User logged in Facebook")
-            if (self.loginCallBack != nil) {
-                self.loginCallBack!(result: result, error: error)
-            }
+            self.returnUserData()
         })
     }
     
     // Call this function manually to retrieve user info
     // Will update this function in the feature to have a callback for needed data
-    static func returnUserData() {
+    func returnUserData() {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
-        graphRequest.startWithCompletionHandler({(connection, result, error) -> Void in
-            if ((error) != nil) {
-                println("Error: \(error)")
-            } else {
-                println("fetched user: \(result)")
-                let userName: String = result.valueForKey("name") as! String
-                println("User Name is: \(userName)")
-                var userEmail = result.valueForKey("email") as? NSString
-                println("User Email is: \(userEmail)")
+        graphRequest.startWithCompletionHandler({
+            (connection, result, error) in
+            self.result = result
+            if (self.loginCallBack != nil) {
+                self.loginCallBack!(connection: connection, result: result, error: error)
             }
         })
     }

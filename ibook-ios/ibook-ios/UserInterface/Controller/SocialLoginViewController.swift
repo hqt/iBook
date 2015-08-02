@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
+import SVProgressHUD
 import UIKit
+import PromiseKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
@@ -29,14 +31,19 @@ class SocialLoginViewController: BaseTextEditViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpUI();
-        self.configureGooglePlus()
-        self.configureFacebook()
     }
     
     override func viewDidAppear(animated: Bool) {
         self.view.backgroundColor = UIColor.mainColor()
         self.navigationItem.hidesBackButton = true
-        navigationController?.navigationBar.topItem?.title = "Login to iBook"
+        self.navigationController?.navigationBar.topItem?.title = "Login to iBook"
+        self.configureGooglePlus()
+        self.configureFacebook()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        fbLoginService.unSubscribe()
+        gppLoginService.unSubscribe()
     }
     
     func setUpUI() {
@@ -61,39 +68,65 @@ class SocialLoginViewController: BaseTextEditViewController {
         // Check user has authenticate?
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             println("User has been login with Facebook")
-            self.navigationController?.pushViewController(TestLoginViewController(loginType: LoginType.FACEBOOK),
-                animated: false)
+            self.navigateToMainController(LoginType.FACEBOOK)
         }
         
         // Callback login, we set callback logout to nil, because we dont need it
         fbLoginService.subscribe({
-            (result: FBSDKLoginManagerLoginResult!, error: NSError!) in
-            if (error == nil && !result.isCancelled) {
-                println("User has been login with Facebook")
-                self.navigateToMainController(LoginType.FACEBOOK)
-            }
+            (connection, result, error) in
+            println(result.valueForKey("id") as! String)
+            self.authenticateWithServer(LoginType.FACEBOOK, socialUserId: 1)
         }, logoutCallBack: nil)
     }
     
     // configure google plus login
     func configureGooglePlus() {
-        GPPSignIn.sharedInstance().delegate = gppLoginService
-        
         // Callback login, we set callback logout to nil, because we dont need it
-        gppLoginService.subscribe({
-            (auth, error) -> Void in
-            if (error == nil && auth != nil) {
-                println("User has been login with Google")
-                self.navigateToMainController(LoginType.GOOGLE_PLUS)
-            }
-            }, logoutCallBack: nil)
-        
-        // Relogin
+        GPPSignIn.sharedInstance().delegate = gppLoginService
         GPPSignIn.sharedInstance().trySilentAuthentication()
+        gppLoginService.subscribe({
+            (ticket, person, error) in
+            println(person.identifier)
+            self.authenticateWithServer(LoginType.GOOGLE_PLUS, socialUserId: 1)
+        }, logoutCallBack: nil)
+    }
+    
+    // Authenticate with server
+    func authenticateWithServer(loginType: LoginType!, socialUserId: Int) {
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Black)
+        
+        // Construct param
+        var params: [String : AnyObject!] = [
+            PARAM_LOGIN.PRIVATE_KEY : Value.privateKey,
+            PARAM_LOGIN.PROVIDER : loginType == LoginType.FACEBOOK
+                ? PARAM_LOGIN.FACEBOOK_PROVIDER : PARAM_LOGIN.GOOGLE_PROVIDER,
+            PARAM_LOGIN.SOCIAL_USER_ID : socialUserId
+        ]
+        
+        // Post to server
+        NSURLConnection.POST(AppDelegate.server + PARAM_LOGIN.URL, JSON: params)
+            .then {
+                (body: NSDictionary!) in
+                self.navigateToMainController(loginType)
+            }.catch(policy: CatchPolicy.AllErrors) {
+                error in
+                println(error.localizedDescription)
+                self.alertError()
+        }
+    }
+    
+    // Alert error
+    func alertError() {
+        SVProgressHUD.dismiss()
+        var alert = UIAlertController(title: "Cannot connect to server", message: "Please check your connection",
+            preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     // Navigate to the next controller
     func navigateToMainController(loginType: LoginType!) {
+        SVProgressHUD.dismiss()
         var viewControllers: NSMutableArray = NSMutableArray(array: self.navigationController!.viewControllers)
         viewControllers.replaceObjectAtIndex(viewControllers.count - 1,
             withObject: TestLoginViewController(loginType: loginType))
