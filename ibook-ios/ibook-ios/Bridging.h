@@ -16,5 +16,6 @@
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleSignIn/GoogleSignIn.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #endif

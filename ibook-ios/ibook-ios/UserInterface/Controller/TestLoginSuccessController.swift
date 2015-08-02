@@ -9,7 +9,7 @@
 import UIKit
 
 public enum LoginType {
-    case FACEBOOK, GOOGLE, GOOGLE_PLUS
+    case FACEBOOK, GOOGLE_PLUS
 }
 
 class TestLoginViewController: BaseTextEditViewController {
@@ -29,7 +29,6 @@ class TestLoginViewController: BaseTextEditViewController {
         super.viewDidLoad()
         self.configureFacebook()
         self.configureGooglePlus()
-        // self.configureGoogle()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,17 +45,6 @@ class TestLoginViewController: BaseTextEditViewController {
         FBLoginService.sharedInstance().subscribe(nil, logoutCallBack: {
             () -> Void in
             self.navigateToLogin()
-        })
-    }
-    
-    func configureGoogle() {
-        var ggLoginService = GGLoginService.sharedInstance()
-        GIDSignIn.sharedInstance().delegate = ggLoginService
-        ggLoginService.subscribe(nil, logoutCallBack: {
-            (user, error) -> Void in
-            if (error == nil) {
-                self.navigateToLogin()
-            }
         })
     }
     
@@ -83,8 +71,6 @@ class TestLoginViewController: BaseTextEditViewController {
         switch (loginType!) {
         case .FACEBOOK:
             FBLoginService.sharedInstance().logout()
-        case .GOOGLE:
-            GGLoginService.sharedInstance().logout()
         case .GOOGLE_PLUS:
             GPPLoginService.sharedInstance().logout()
         }

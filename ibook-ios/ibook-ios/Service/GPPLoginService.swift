@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 apidez. All rights reserved.
 //
 
-class GPPLoginService: NSObject, GPPSignInDelegate {
+class GPPLoginService: NSObject, GPPSignInDelegate, ISocialLoginService {
     
     var loginCallBack: ((auth: GTMOAuth2Authentication!, error: NSError?) -> Void)? = nil
     var logoutCallBack: ((error: NSError?) -> Void)? = nil
@@ -48,6 +48,7 @@ class GPPLoginService: NSObject, GPPSignInDelegate {
             self.logoutCallBack = logoutCallBack
     }
     
+    // Use this function to logout anytime
     func logout() {
         if (GPPSignIn.sharedInstance().authentication != nil) {
             GPPSignIn.sharedInstance().signOut()
@@ -55,4 +56,8 @@ class GPPLoginService: NSObject, GPPSignInDelegate {
         }
     }
     
+    // Use this function to login anytime
+    func login() {
+        GPPSignIn.sharedInstance().authenticate()
+    }
 }

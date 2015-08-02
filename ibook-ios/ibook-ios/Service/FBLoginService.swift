@@ -9,7 +9,7 @@
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
+class FBLoginService: NSObject, ISocialLoginService {
     
     var loginCallBack: ((result: FBSDKLoginManagerLoginResult!, error: NSError!) -> Void)? = nil
     var logoutCallBack: (() -> Void)? = nil
@@ -34,16 +34,7 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
             self.logoutCallBack = logoutCallBack
     }
     
-    // The action that will be triggered when the login complete
-    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!,
-        error: NSError!) {
-            println("User logged in Facebook")
-            if (loginCallBack != nil) {
-                loginCallBack!(result: result, error: error)
-            }
-    }
-    
-    // Use this function to logout everywhere at any time
+    // Use this function to logout at any time
     func logout() {
         if (FBSDKAccessToken.currentAccessToken() != nil) {
             var loginManager = FBSDKLoginManager()
@@ -55,12 +46,16 @@ class FBLoginService: NSObject, FBSDKLoginButtonDelegate {
         }
     }
     
-    // The action that will be triggered when logout complete
-    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        println("User logged out Facebook")
-        if (logoutCallBack != nil) {
-            logoutCallBack!()
-        }
+    // Use this function to login at any time
+    func login() {
+        var loginManager = FBSDKLoginManager()
+        loginManager.logInWithPublishPermissions([], handler: {
+            (result, error) -> Void in
+            println("User logged in Facebook")
+            if (self.loginCallBack != nil) {
+                self.loginCallBack!(result: result, error: error)
+            }
+        })
     }
     
     // Call this function manually to retrieve user info
